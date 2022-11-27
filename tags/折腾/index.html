@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://nekoyard.one/tags/猫/"/>
+  <link rel="canonical" href="https://nekoyard.one/tags/折腾/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -34,13 +34,13 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>标签：猫 - 仔猫院子</title>
+  <title>标签：折腾 - 仔猫院子</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="一个个人网站 - koneko - 仔猫院子">
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="仔猫院子">
-<meta property="og:url" content="https://nekoyard.one/tags/%E7%8C%AB/index.html">
+<meta property="og:url" content="https://nekoyard.one/tags/%E6%8A%98%E8%85%BE/index.html">
 <meta property="og:site_name" content="仔猫院子">
 <meta property="og:description" content="一个个人网站">
 <meta property="og:locale" content="zh_CN">
@@ -2696,7 +2696,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://nekoyard.one/2022/11/17/phone-methods/">
+  <link itemprop="mainEntityOfPage" href="https://nekoyard.one/2022/11/27/make-vps-simple/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="仔猫院子">
   </span>
@@ -2714,37 +2714,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/17/phone-methods/"  itemprop="url">
-        折腾手机方便的输入姿势
+      <a href="/2022/11/27/make-vps-simple/"  itemprop="url">
+        让vps设置更简洁
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>折腾了好久<br>没啥经历些什么东西了<br>放点泡泡照片吧</p>
+      
+        <p>应该是有些强迫症吧，对昨天让自己大费周章的’lnmp’非常不爽，想想自己应该也用不上其他组件，至少近期暂时是用不上了，那花费大量的下载和配置时间是为啥呢？我只需要’nginx’就好了呀。<br>于是重置了vps重新安装了’git’和独立的’nginx’。’nginx’十几秒就安装完毕，和前面等待半小时形成鲜明对比。<br>安装位置改变了，需要修改的配置文件在下面的路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/nginx/sites-enabled</span><br></pre></td></tr></table></figure>
+<p>里面就一个’default’文件，修改网站root文件夹位置和域名信息就好了。<br>配置完毕之后重启’nginx’服务：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+<p>然后’hexo d’就完工啦。</p>
+
+      
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-11-17T02:23:00+08:00">2022-11-17</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-11-27T14:05:21+08:00">2022-11-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+          <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url"><span itemprop="name">日常</span></a>
+              <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
             </span>
           
         
       </div>
-      
-        <div>
-          <a class='readmore' href='/2022/11/17/phone-methods/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
       
     </div>
   
