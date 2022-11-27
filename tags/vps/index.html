@@ -2310,7 +2310,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: false,
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1669531287151),
+    lastupdate: new Date(1669531409117),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2726,7 +2726,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <p>应该是有些强迫症吧，对昨天让自己大费周章的<code>lnmp</code>非常不爽，想想自己应该也用不上其他组件，至少近期暂时是用不上了，那花费大量的下载和配置时间是为啥呢？我只需要<code>nginx</code>就好了呀。<br>于是重置了vps重新安装了<code>git</code>和独立的<code>nginx</code>。<code>nginx</code>十几秒就安装完毕，和前面等待半小时形成鲜明对比。<br>安装位置改变了，需要修改的配置文件在下面的路径：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/nginx/sites-enabled</span><br></pre></td></tr></table></figure>
-<p>里面就一个’default’文件，修改网站root文件夹位置和域名信息就好了。<br>配置完毕之后重启<code>nginx</code>服务：</p>
+<p>里面就一个<code>default</code>文件，修改网站root文件夹位置和域名信息就好了。<br>配置完毕之后重启<code>nginx</code>服务：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
 <p>然后<code>hexo d</code>就完工啦。</p>
 
