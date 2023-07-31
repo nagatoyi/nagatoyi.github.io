@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://konekoyard.one/archives/2022/12/"/>
+  <link rel="canonical" href="https://konekoyard.one/archives/2023/07/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -34,13 +34,13 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>归档：2022/12 - 仔猫院子</title>
+  <title>归档：2023/7 - 仔猫院子</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="一个个人网站 - koneko - 仔猫院子">
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="仔猫院子">
-<meta property="og:url" content="https://konekoyard.one/archives/2022/12/index.html">
+<meta property="og:url" content="https://konekoyard.one/archives/2023/07/index.html">
 <meta property="og:site_name" content="仔猫院子">
 <meta property="og:description" content="一个个人网站">
 <meta property="og:locale" content="zh_CN">
@@ -2687,12 +2687,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
-          
-        
-          
-        
-          
-        
       
     
     
@@ -2700,7 +2694,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2022/12/21/mac-app-backup/">
+  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2023/07/31/2023-07-31/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="仔猫院子">
   </span>
@@ -2718,209 +2712,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/12/21/mac-app-backup/"  itemprop="url">
-        准备重置电脑系统
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>折腾过很多乱七八糟的东西之后就想着重新安装一下系统，感觉应该是某种洁癖。</p>
-<p>这里记录一下现在用的，用着顺手的一些软件。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-12-21T18:25:59+08:00">2022-12-21</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/12/21/mac-app-backup/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2022/12/07/vps-set-tor-bridge/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="仔猫院子">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="仔猫院子">
-    <meta itemprop="description" content="一个个人网站">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/12/07/vps-set-tor-bridge/"  itemprop="url">
-        Debian搭建Tor网桥
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        <p>安装’obfs4proxy’和’tor’:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update -y</span><br><span class="line">apt install tor obfs4proxy -y</span><br></pre></td></tr></table></figure>
-<p>编辑’tor’配置文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/tor/torrc</span><br></pre></td></tr></table></figure>
-<p>添加下面的配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BridgeRelay 1</span><br><span class="line">ORPort 9001</span><br><span class="line">ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy</span><br><span class="line">ExtORPort auto # 这里的obfs4混淆使用随机端口，确保你的机器防火墙是关闭状态</span><br><span class="line">ContactInfo xxx@xxx.xxx # 邮箱地址，用于联系节点维护人员</span><br><span class="line">Nickname Xenon # 节点的昵称，可以自己随便填写</span><br><span class="line">PublishServerDescriptor 0 # 取消BridgeDB收集你的服务器信息</span><br></pre></td></tr></table></figure>
-<p>重启’tor’：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart tor</span><br></pre></td></tr></table></figure>
-<p>设置开机自动启动：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable tor</span><br></pre></td></tr></table></figure>
-<p>完毕。</p>
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-12-07T18:37:38+08:00">2022-12-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
-            </span>
-          
-        
-      </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2022/12/04/try-the-phone/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="仔猫院子">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="仔猫院子">
-    <meta itemprop="description" content="一个个人网站">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/12/04/try-the-phone/"  itemprop="url">
-        深夜测试
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        <p>测试手机更新</p>
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-12-04T02:58:03+08:00">2022-12-04</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url"><span itemprop="name">日常</span></a>
-            </span>
-          
-        
-      </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2022/12/03/2022-12-03/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="仔猫院子">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="仔猫院子">
-    <meta itemprop="description" content="一个个人网站">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/12/03/2022-12-03/"  itemprop="url">
+      <a href="/2023/07/31/2023-07-31/"  itemprop="url">
         今天的日记
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>上了一天班之后又是周末，本来应该很开心的，不过泡泡的右眼出了点状况，加上这几天天气一直不好，持续阴冷。<br>估计泡泡和我一样开心不起来吧。<br>下面是泡泡泛红的小眼睛。<br><img src="/images/IMG_20221203_131658.webp" class="lazyload" data-srcset="/images/IMG_20221203_131658.webp" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br>了解了一下可能是进了脏东西或是患上了结膜炎，到下午的时候看起来有明显好转，放心不少，不过也决定后面要注意他的眼睛清洁问题了。</p>
+      
+        <p>感觉现在每天脑袋都空空如也，没有装什么实质的内容，就像一间堆满垃圾的房间，想收拾但是无从下手，可能就是懒。<br>知道要改变就必须从行动开始，不管从哪里开始，但是有行动就可能有变化。<br>道理都懂只是懒</p>
+
+      
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-12-03T20:23:00+08:00">2022-12-03</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-31T20:35:00+08:00">2023-07-31</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
@@ -2931,12 +2740,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
       </div>
-      
-        <div>
-          <a class='readmore' href='/2022/12/03/2022-12-03/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
       
     </div>
   
