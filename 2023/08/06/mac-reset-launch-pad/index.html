@@ -5,8 +5,8 @@
   <meta name="Volantis" content="6.0.0-alpha.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://konekoyard.one/tags/homebrew/"/>
+  
+  <link rel="canonical" href="https://konekoyard.one/2023/08/06/mac-reset-launch-pad/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -34,18 +34,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>标签：homebrew - 仔猫院子</title>
+  <title>Mac重置启动台图标 - 仔猫院子</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="一个个人网站 - koneko - 仔猫院子">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="仔猫院子">
-<meta property="og:url" content="https://konekoyard.one/tags/homebrew/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac重置启动台图标">
+<meta property="og:url" content="https://konekoyard.one/2023/08/06/mac-reset-launch-pad/index.html">
 <meta property="og:site_name" content="仔猫院子">
-<meta property="og:description" content="一个个人网站">
+<meta property="og:description" content="打开终端，输入以下内容： 1defaults write com.apple.dock ResetLaunchPad -bool true killall Dock">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2023-08-06T04:27:00.000Z">
+<meta property="article:modified_time" content="2023-08-06T04:37:01.561Z">
 <meta property="article:author" content="koneko">
+<meta property="article:tag" content="mac">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2602,7 +2605,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  dock' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
 
@@ -2678,25 +2681,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2022/11/15/mac-hr-jk-pw-vi/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2023/08/06/mac-reset-launch-pad/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="仔猫院子">
   </span>
@@ -2705,65 +2692,179 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="一个个人网站">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/15/mac-hr-jk-pw-vi/"  itemprop="url">
-        记录一些mac环境中的麻烦事情
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      <p>只是为了以后折腾方便点，记录一下不要再走弯路。</p>
-<h2 id="安装homebrew"><a href="#安装homebrew" class="headerlink" title="安装homebrew"></a>安装homebrew</h2><h3 id="homebrew的概念"><a href="#homebrew的概念" class="headerlink" title="homebrew的概念"></a>homebrew的概念</h3><p>Homebrew是一款MacOS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。<br>通常用于Mac系统，也可以安装在Linux系统<br>注意M1处理器的安装位置（与intel有所区别）：<br>brew的安装位置：/opt/homebrew<br>brew安装的所有【软件安装位置】在  /opt/homebrew/Cellar 目录下<br>官网地址：<a target="_blank" rel="noopener" href="https://brew.sh/index_zh-cn">地址</a>  </p>
+    
+      <h1 class="title" itemprop="name headline">
+        Mac重置启动台图标
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="" rel="nofollow">
+    <img itemprop="image" src="/images/avatar-s.png" class="lazyload" data-srcset="/images/avatar-s.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">自分</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  
+  
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
+      </span>
     
   </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-15T23:37:44+08:00">2022-11-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
-            </span>
+
+
+
           
         
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2023-08-06T12:27:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2023年8月6日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
       </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>打开终端，输入以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock ResetLaunchPad -bool true killall Dock</span><br></pre></td></tr></table></figure>
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
       
-        <div>
-          <a class='readmore' href='/2022/11/15/mac-hr-jk-pw-vi/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-08-06T12:37:01+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2023年8月6日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
+  
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/mac/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>mac</p></a></div>
+  <span hidden itemprop="keywords">mac</span>
   
 
 
+        
+      
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
     
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2023/07/31/2023-07-31/'>
+          <p class='title'>今天的日记<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>感觉现在每天脑袋都空空如也，没有装什么实质的内容，就像一间堆满垃圾的房间，想收拾但是无从下手，可能就是懒。知道要改变就必须从行动开始，不管从哪里开始，但是有行动就可能有变化。道理都懂只是懒
+</p>
+        </a>
+      
+    </div>
+  
+  <!-- 文章推荐 -->
+  
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2023/08/06/mac-reset-launch-pad/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2772,69 +2873,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
-  
-  <section class="widget category desktop pjax">
     
-  <header>
-    
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%A4%87%E5%BF%98/" href="/categories/%E5%A4%87%E5%BF%98/"
-            active-action="action-categoriesE5A487E5BF98"
-            ><div class='name'>备忘</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E5%B8%B8/" href="/categories/%E6%97%A5%E5%B8%B8/"
-            active-action="action-categoriesE697A5E5B8B8"
-            ><div class='name'>日常</div><div class='badge'>(12)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-    
-  
-
-  
-    
-    
-      
-  
-  <section class="widget tagcloud desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/hexo/" style="font-size: 17.33px; color: #828282">hexo</a> <a href="/tags/homebrew/" style="font-size: 14px; color: #999">homebrew</a> <a href="/tags/mac/" style="font-size: 17.33px; color: #828282">mac</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/node/" style="font-size: 14px; color: #999">node</a> <a href="/tags/tor/" style="font-size: 14px; color: #999">tor</a> <a href="/tags/vps/" style="font-size: 20.67px; color: #6c6c6c">vps</a> <a href="/tags/%E5%90%90%E6%A7%BD/" style="font-size: 17.33px; color: #828282">吐槽</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 24px; color: #555">日记</a> <a href="/tags/%E6%99%92%E5%9B%BE/" style="font-size: 14px; color: #999">晒图</a> <a href="/tags/%E6%B3%A1%E6%B3%A1/" style="font-size: 24px; color: #555">泡泡</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 17.33px; color: #828282">测试</a> <a href="/tags/%E7%8C%AB/" style="font-size: 14px; color: #999">猫</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 14px; color: #999">软件</a>
-    </div>
-  </section>
-
-
-    
-  
-
   
 
 
 <div class="widget-sticky pjax">
 
+  
+  
+
+
+  <div class="">
+    <!-- pjax占位 -->
+  </div>
+
+  
+
 </div>
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2866,13 +2932,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};

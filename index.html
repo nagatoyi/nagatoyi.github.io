@@ -2310,7 +2310,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: false,
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690807097465),
+    lastupdate: new Date(1691296652896),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2733,9 +2733,70 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2023/08/06/mac-reset-launch-pad/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="仔猫院子">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="仔猫院子">
+    <meta itemprop="description" content="一个个人网站">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2023/08/06/mac-reset-launch-pad/"  itemprop="url">
+        Mac重置启动台图标
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        <p>打开终端，输入以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock ResetLaunchPad -bool true killall Dock</span><br></pre></td></tr></table></figure>
+
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2023-08-06T12:27:00+08:00">2023-08-06</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
+            </span>
+          
+        
+      </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -3286,68 +3347,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://konekoyard.one/2022/11/26/move-hexo-to-vps/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="仔猫院子">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="仔猫院子">
-    <meta itemprop="description" content="一个个人网站">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/26/move-hexo-to-vps/"  itemprop="url">
-        把hexo搬到了vps上
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>主要是记录一下关键步骤以防后面还要用到。<br>这里vps选了BuyVM的主机，主要是感觉性价比还不错，预装了Debian 11。<br>域名还是狗叠选购。<br>参考的教程主要来自<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1582016">这里</a><br>因为用的系统不同，还是有不少区别，中间各种搜索查询，折腾了半天总算是成功了。</p>
-<h3 id="下面是主要步骤："><a href="#下面是主要步骤：" class="headerlink" title="下面是主要步骤："></a>下面是主要步骤：</h3>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-26T19:13:16+08:00">2022-11-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/11/26/move-hexo-to-vps/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3394,7 +3393,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E5%A4%87%E5%BF%98/" href="/categories/%E5%A4%87%E5%BF%98/"
             active-action="action-categoriesE5A487E5BF98"
-            ><div class='name'>备忘</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>备忘</div><div class='badge'>(7)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E6%97%A5%E5%B8%B8/" href="/categories/%E6%97%A5%E5%B8%B8/"
@@ -3424,7 +3423,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/hexo/" style="font-size: 17.33px; color: #828282">hexo</a> <a href="/tags/homebrew/" style="font-size: 14px; color: #999">homebrew</a> <a href="/tags/mac/" style="font-size: 14px; color: #999">mac</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/node/" style="font-size: 14px; color: #999">node</a> <a href="/tags/tor/" style="font-size: 14px; color: #999">tor</a> <a href="/tags/vps/" style="font-size: 20.67px; color: #6c6c6c">vps</a> <a href="/tags/%E5%90%90%E6%A7%BD/" style="font-size: 17.33px; color: #828282">吐槽</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 24px; color: #555">日记</a> <a href="/tags/%E6%99%92%E5%9B%BE/" style="font-size: 14px; color: #999">晒图</a> <a href="/tags/%E6%B3%A1%E6%B3%A1/" style="font-size: 24px; color: #555">泡泡</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 17.33px; color: #828282">测试</a> <a href="/tags/%E7%8C%AB/" style="font-size: 14px; color: #999">猫</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 14px; color: #999">软件</a>
+      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/hexo/" style="font-size: 17.33px; color: #828282">hexo</a> <a href="/tags/homebrew/" style="font-size: 14px; color: #999">homebrew</a> <a href="/tags/mac/" style="font-size: 17.33px; color: #828282">mac</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/node/" style="font-size: 14px; color: #999">node</a> <a href="/tags/tor/" style="font-size: 14px; color: #999">tor</a> <a href="/tags/vps/" style="font-size: 20.67px; color: #6c6c6c">vps</a> <a href="/tags/%E5%90%90%E6%A7%BD/" style="font-size: 17.33px; color: #828282">吐槽</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 24px; color: #555">日记</a> <a href="/tags/%E6%99%92%E5%9B%BE/" style="font-size: 14px; color: #999">晒图</a> <a href="/tags/%E6%B3%A1%E6%B3%A1/" style="font-size: 24px; color: #555">泡泡</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 17.33px; color: #828282">测试</a> <a href="/tags/%E7%8C%AB/" style="font-size: 14px; color: #999">猫</a> <a href="/tags/%E7%96%AB%E6%83%85/" style="font-size: 14px; color: #999">疫情</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 14px; color: #999">软件</a>
     </div>
   </section>
 
