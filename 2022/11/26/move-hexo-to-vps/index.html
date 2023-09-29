@@ -46,7 +46,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-11-26T11:13:16.000Z">
-<meta property="article:modified_time" content="2023-09-29T13:39:47.462Z">
+<meta property="article:modified_time" content="2023-09-29T13:58:08.712Z">
 <meta property="article:author" content="koneko">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="vps">
@@ -2314,7 +2314,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: false,
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1695994828744),
+    lastupdate: new Date(1695995901648),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2774,22 +2774,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="2-vps安装git："><a href="#2-vps安装git：" class="headerlink" title="2.vps安装git："></a>2.vps安装git：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install git</span><br></pre></td></tr></table></figure>
 <p>然后可以检查一下是否安装成功：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-<h4 id="3-vps安装nginx"><a href="#3-vps安装nginx" class="headerlink" title="3.vps安装nginx"></a>3.vps安装nginx</h4><p>1.先更新系统：</p>
+<h4 id="3-vps安装nginx"><a href="#3-vps安装nginx" class="headerlink" title="3.vps安装nginx"></a>3.vps安装nginx</h4><p>先更新系统：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br></pre></td></tr></table></figure>
 
-<p>2.安装nginx：</p>
+<p>安装nginx：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx</span><br></pre></td></tr></table></figure>
 
-<p>3.启动nginx：</p>
+<p>启动nginx：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
 
-<p>4.检查nginx状态：</p>
+<p>检查nginx状态：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status nginx</span><br></pre></td></tr></table></figure>
 <p>如果一切顺利，您应该会看到”active (running)”的消息。</p>
-<p>5.配置防火墙：</p>
+<p>配置防火墙：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow &#x27;Nginx HTTP&#x27;</span><br><span class="line">sudo ufw allow &#x27;Nginx HTTPS&#x27;</span><br></pre></td></tr></table></figure>
 <p>为了允许访问Nginx，需要打开端口80和/或443。</p>
-<p>6.检查Nginx</p>
+<p>检查Nginx</p>
 <p>现在可以通过打开Web浏览器并在地址栏中输入服务器的IP地址来检查Nginx是否工作。应该会看到默认的Nginx欢迎页面。</p>
 <h4 id="4-新建用户并加入root组："><a href="#4-新建用户并加入root组：" class="headerlink" title="4.新建用户并加入root组："></a>4.新建用户并加入root组：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br><span class="line">usermod -aG sudo git</span><br></pre></td></tr></table></figure>
 <h4 id="5-配置git用户的ssh登陆（这里折腾了好久，记录详细一点"><a href="#5-配置git用户的ssh登陆（这里折腾了好久，记录详细一点" class="headerlink" title="5.配置git用户的ssh登陆（这里折腾了好久，记录详细一点"></a>5.配置git用户的ssh登陆（这里折腾了好久，记录详细一点</h4><p>切换到git用户：</p>
@@ -2828,9 +2828,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir www;mkdir www/blog</span><br></pre></td></tr></table></figure>
 <p>然后给hook添加可执行权限：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~/blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
-<h4 id="8-配置nginx"><a href="#8-配置nginx" class="headerlink" title="8.配置nginx"></a>8.配置nginx</h4><p>编辑配置文件，地址在：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/nginx/sites-available</span><br></pre></td></tr></table></figure>
-
+<h4 id="8-配置nginx"><a href="#8-配置nginx" class="headerlink" title="8.配置nginx"></a>8.配置nginx</h4><p>编辑配置文件<br>地址在：<code>/etc/nginx/sites-available</code></p>
 <p>编辑default内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server</span><br><span class="line">    &#123;</span><br><span class="line">        listen 80 default_server;</span><br><span class="line">        #listen [::]:80 default_server ipv6only=on;</span><br><span class="line">        server_name 你的域名;</span><br><span class="line">        index index.html index.htm index.php;</span><br><span class="line">        root /home/git/www/blog;</span><br><span class="line">    </span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>检查配置有无错误：</p>
@@ -2843,7 +2841,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="10-部署文件到vps"><a href="#10-部署文件到vps" class="headerlink" title="10.部署文件到vps"></a>10.部署文件到vps</h4><p>这里就很简单啦：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <p>当然是写完文章之后。</p>
-<h4 id="11-获取ssl证书"><a href="#11-获取ssl证书" class="headerlink" title="11.获取ssl证书"></a>11.获取ssl证书</h4><p>这一步真的是绕了一个大圈子，就是前面图方便一键安装lnmp的锅，用Let’sEncrypt的bot怎么都不成功，尝试了各种办法，后面发现它自带安装证书的命令，参考<a target="_blank" rel="noopener" href="https://lnmp.org/faq/letsencrypt-wildcard-ssl.html">这里</a><br>但是必须配置域名DNS服务商API才能顺利获取。</p>
+<h4 id="11-获取ssl证书"><a href="#11-获取ssl证书" class="headerlink" title="11.获取ssl证书"></a>11.获取ssl证书</h4><p>安装certbot：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt -y install certbot</span><br></pre></td></tr></table></figure>
+<p>停止nginx，防止端口占用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
+<p>为域名申请证书：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --standalone -d 域名 -d www.域名</span><br></pre></td></tr></table></figure>
+<p>查看域名路径及过期时间：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot certificates</span><br></pre></td></tr></table></figure>
+<p>重启nginx：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx</span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2868,7 +2875,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-09-29T21:39:47+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-09-29T21:58:08+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2023年9月29日</p>
