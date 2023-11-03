@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://nekoyard.one/archives/2023/07/"/>
+  <link rel="canonical" href="https://nekoyard.one/archives/2023/11/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -34,13 +34,13 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>归档：2023/7 - 仔猫院子</title>
+  <title>归档：2023/11 - 仔猫院子</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="一个个人网站 - koneko - 仔猫院子">
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="仔猫院子">
-<meta property="og:url" content="https://nekoyard.one/archives/2023/07/index.html">
+<meta property="og:url" content="https://nekoyard.one/archives/2023/11/index.html">
 <meta property="og:site_name" content="仔猫院子">
 <meta property="og:description" content="一个个人网站">
 <meta property="og:locale" content="zh_CN">
@@ -2721,6 +2721,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
@@ -2728,7 +2730,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://nekoyard.one/2023/07/31/2023-07-31/">
+  <link itemprop="mainEntityOfPage" href="https://nekoyard.one/2023/11/03/未命名 1/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="仔猫院子">
   </span>
@@ -2746,7 +2748,43 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/31/2023-07-31/"  itemprop="url">
+      <a href="/2023/11/03/%E6%9C%AA%E5%91%BD%E5%90%8D%201/"  itemprop="url">
+        2023年11月3日
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+  </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://nekoyard.one/2023/11/03/unraid-docker-memory-limit/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="仔猫院子">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="仔猫院子">
+    <meta itemprop="description" content="一个个人网站">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2023/11/03/unraid-docker-memory-limit/"  itemprop="url">
         今天的日记
       </a>
     </h2>
@@ -2754,8 +2792,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='md article-desc' itemprop="articleBody">
     
       
-        <p>感觉现在每天脑袋都空空如也，没有装什么实质的内容，就像一间堆满垃圾的房间，想收拾但是无从下手，可能就是懒。<br>知道要改变就必须从行动开始，不管从哪里开始，但是有行动就可能有变化。<br>道理都懂只是懒</p>
+        <p>记录一下限制unraid主机docker内存用量的方法</p>
+<h4 id="1-启动容器时限制容器内存用量"><a href="#1-启动容器时限制容器内存用量" class="headerlink" title="1.启动容器时限制容器内存用量"></a>1.启动容器时限制容器内存用量</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -m 1g --memory-swap -1</span><br></pre></td></tr></table></figure>
 
+<h4 id="2-限制已经启动的容器内存用量"><a href="#2-限制已经启动的容器内存用量" class="headerlink" title="2.限制已经启动的容器内存用量"></a>2.限制已经启动的容器内存用量</h4><p>先停止容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop containerId</span><br></pre></td></tr></table></figure>
+<p>限制用量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker update containerId -m 1g --memory-swap -1</span><br></pre></td></tr></table></figure>
+<p>启动容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start containerId</span><br></pre></td></tr></table></figure>
       
     
   </div>
@@ -2763,13 +2808,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-31T20:35:00+08:00">2023-07-31</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-11-03T19:33:00+08:00">2023-11-03</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+          <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url"><span itemprop="name">日常</span></a>
+              <a href="/categories/%E5%A4%87%E5%BF%98/" itemprop="url"><span itemprop="name">备忘</span></a>
             </span>
           
         
