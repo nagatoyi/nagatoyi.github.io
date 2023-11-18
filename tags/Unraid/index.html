@@ -34,13 +34,13 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>标签：Unraid - 仔猫院子</title>
+  <title>标签：unraid - 仔猫院子</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="一个个人网站 - koneko - 仔猫院子">
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="仔猫院子">
-<meta property="og:url" content="https://nekoyard.one/tags/Unraid/index.html">
+<meta property="og:url" content="https://nekoyard.one/tags/unraid/index.html">
 <meta property="og:site_name" content="仔猫院子">
 <meta property="og:description" content="一个个人网站">
 <meta property="og:locale" content="zh_CN">
@@ -2310,7 +2310,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: false,
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1700325464666),
+    lastupdate: new Date(1700325869777),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2730,7 +2730,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://nekoyard.one/2023/10/24/unraid-app-list/">
+  <link itemprop="mainEntityOfPage" href="https://nekoyard.one/2023/11/03/unraid-docker-memory-limit/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="仔猫院子">
   </span>
@@ -2748,49 +2748,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/10/24/unraid-app-list/"  itemprop="url">
-        Unraid app 记录
+      <a href="/2023/11/03/unraid-docker-memory-limit/"  itemprop="url">
+        今天的日记
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        <p>2023.11.19更新<br>2023.10.26更新<br>最最最先装下面这个方便设置代理的插件：<br>PROXY EDITOR<br>可以在Gittee 平台拉取：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gitee.com/ludoux/unraid-proxy-editor/raw/master/proxy.editor.plg</span><br></pre></td></tr></table></figure>
-<p>然后可以挂上现有的，方便搭梯子的设备挂上。</p>
-<p>记录一下现在用的unread的插件及docker应用，基本都可以在app商店搜到</p>
-<h4 id="插件："><a href="#插件：" class="headerlink" title="插件："></a>插件：</h4><ul>
-<li>Appdata Backup（自动备份app数据）</li>
-<li>CA Auto Update Applications（自动升级app）</li>
-<li>CA Cleanup Appdata（清理app数据）</li>
-<li>Community Applications（app商店）</li>
-<li>Dynamix File Manager（系统文件管理）</li>
-<li>Dynamix S3 Sleep（系统休眠工具）</li>
-<li>Dynamix System Temperature（显示更多硬件温度数据）</li>
-<li>Fix Common Problems（自动查找系统问题并提出解决方法）</li>
-<li>GPU Statistics（GPU状态面板）</li>
-<li>Intel GPU TOP（intelGPU驱动）</li>
-<li>unBALANCE（迁移文件数据）</li>
-<li>Unraid Connect</li>
-<li>User Scripts（自定义脚本）<h4 id="Docker-app"><a href="#Docker-app" class="headerlink" title="Docker app"></a>Docker app</h4></li>
-<li>adminer （其实可以不用，只是方便以图形UI管理数据库）</li>
-<li>Apache-WebDAV（远程webdav服务）</li>
-<li>aria2-pro（aria2下载工具）</li>
-<li>jellyfin（多媒体服务器）<br><del>* mariadb</del><br><del>* PhotoPrism（照片库）</del></li>
-<li>v2rayA（科学上网）<br><del>* AutoBangumi（自动追番，通过<code>estrellaxd/auto_bangumi</code>安装）</del></li>
-<li>qbittorrent（自动下番）</li>
-<li>Heimdall（整理应用）</li>
-<li>ddns-go</li>
-<li>Komga（漫画阅读器）<br><del>* TinyMediaManager（手动刮削器）</del></li>
-<li>ZeroTier（没有公网IP就靠它了）</li>
-<li>NginxProxyManager（反向代理）</li>
-<li>FileBrowser（简单的文件浏览）</li>
-<li>Krusader（文件管理，主要可以压缩解压）</li>
-<li>transmission（挂PT）</li>
-<li>syncthing（同步文件）</li>
-</ul>
+        <p>记录一下限制unraid主机docker内存用量的方法</p>
+<h4 id="1-启动容器时限制容器内存用量"><a href="#1-启动容器时限制容器内存用量" class="headerlink" title="1.启动容器时限制容器内存用量"></a>1.启动容器时限制容器内存用量</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -m 1g --memory-swap -1</span><br></pre></td></tr></table></figure>
 
+<h4 id="2-限制已经启动的容器内存用量"><a href="#2-限制已经启动的容器内存用量" class="headerlink" title="2.限制已经启动的容器内存用量"></a>2.限制已经启动的容器内存用量</h4><p>先停止容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop containerId</span><br></pre></td></tr></table></figure>
+<p>限制用量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker update containerId -m 1g --memory-swap -1</span><br></pre></td></tr></table></figure>
+<p>启动容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start containerId</span><br></pre></td></tr></table></figure>
       
     
   </div>
@@ -2798,7 +2772,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-10-24T20:55:00+08:00">2023-10-24</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-11-03T19:33:00+08:00">2023-11-03</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/categories/%E5%A4%87%E5%BF%98/">备忘</a>
