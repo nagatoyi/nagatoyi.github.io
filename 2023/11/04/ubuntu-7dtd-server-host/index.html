@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/nekoyard.png">
+  <link rel="icon" href="/img/nekoyard.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="koneko">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="服务器信息： 1华为云 | entry_smb | 2vCPUs | 2GiB | t7.large.1 | Ubuntu 22.04 server 64bit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录搭建7dtd服务器">
+<meta property="og:url" content="https://nekoyard.one/2023/11/04/ubuntu-7dtd-server-host/index.html">
+<meta property="og:site_name" content="仔猫院子">
+<meta property="og:description" content="服务器信息： 1华为云 | entry_smb | 2vCPUs | 2GiB | t7.large.1 | Ubuntu 22.04 server 64bit">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-04T06:07:00.000Z">
+<meta property="article:modified_time" content="2024-10-12T12:50:40.622Z">
+<meta property="article:author" content="koneko">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="7dtd">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>记录搭建7dtd服务器 - 仔猫院子</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"nekoyard.one","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>猫仔院子</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg1.gif') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="记录搭建7dtd服务器"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-04 14:07" pubdate>
+          2023年11月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">记录搭建7dtd服务器</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>服务器信息：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">华为云 | <span class="hljs-type">entry_smb</span> | <span class="hljs-type">2vCPUs</span> | <span class="hljs-type">2GiB</span> | <span class="hljs-type">t7</span>.large<span class="hljs-number">.1</span> | <span class="hljs-type">Ubuntu</span> <span class="hljs-number">22.04</span> server <span class="hljs-number">64</span>bit<br></code></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h3 id="1-设置swap"><a href="#1-设置swap" class="headerlink" title="1.设置swap"></a>1.设置swap</h3><p>首先检查一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">swapon -s <span class="hljs-comment"># 如果该命令没有返回出结果，则代表该系统尚未配置过swap</span><br><span class="hljs-built_in">df</span> -h <span class="hljs-comment"># 检查可用的存储空间</span><br></code></pre></td></tr></table></figure>
+<p>如果没有，按如下步骤创建Swap文件。一般建议swap大小设置为自己物理内存相同或两倍。这里设置了4G。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> fallocate -l 4G /swapfile <span class="hljs-comment"># 请根据自己情况修改swap大小</span><br><span class="hljs-built_in">ls</span> -lh /swapfile<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> 600 /swapfile <span class="hljs-comment"># 更改swap文件的权限，否则会有很大的安全隐患</span><br><span class="hljs-built_in">ls</span> -lh /swapfile <span class="hljs-comment"># 然后检查是否设置完成</span><br></code></pre></td></tr></table></figure>
+<p>启用swap文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> mkswap /swapfile<br><span class="hljs-built_in">sudo</span> swapon /swapfile <span class="hljs-comment"># 确认一下设置是否已经生效</span><br>swapon -s<br>free -m<br></code></pre></td></tr></table></figure>
+<p>修改fstab让配置永久生效。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vim /etc/fstab<br></code></pre></td></tr></table></figure>
+<p>文件末尾加入</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">/swapfile <span class="hljs-keyword">swap</span> <span class="hljs-keyword">swap</span> sw <span class="hljs-number">0</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<p>swappiness参数决定了系统将数据从内存交换到swap空间的频率。该数值越接近于0，系统越倾向于不进行swap，最大限度使用物理内存。数值越接近100，越倾向于使用swap，而过多的使用swap可能导致服务器运行效率缓慢。ubuntu系统的默认推荐值是60，为了保证服务器运行效率，建议设置为10。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> /proc/sys/vm/swappiness <span class="hljs-comment"># 查看当前的swappiness</span><br><span class="hljs-built_in">sudo</span> sysctl vm.swappiness=10 <span class="hljs-comment">#修改swappiness为10</span><br></code></pre></td></tr></table></figure>
+<p>编辑sysctl配置文件,使其永久生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vim /etc/sysctl.conf<br></code></pre></td></tr></table></figure>
+<p>文末加入</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">vm.swappiness</span> = <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+<h3 id="2-安装screen"><a href="#2-安装screen" class="headerlink" title="2.安装screen"></a>2.安装screen</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">apt <span class="hljs-keyword">install</span> screen<br></code></pre></td></tr></table></figure>
+<h3 id="3-安装SteamCmd运行所需环境"><a href="#3-安装SteamCmd运行所需环境" class="headerlink" title="3.安装SteamCmd运行所需环境"></a>3.安装SteamCmd运行所需环境</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">dpkg <span class="hljs-comment">--add-architecture i386  </span><br>apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span>  <br>apt-<span class="hljs-keyword">get</span> install lib32gcc-s1<br></code></pre></td></tr></table></figure>
+<h3 id="4-创建用户"><a href="#4-创建用户" class="headerlink" title="4.创建用户"></a>4.创建用户</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">useradd</span> -m steam <span class="hljs-comment"># 新建一个名为steam的用户</span><br>passwd steam <span class="hljs-comment"># 为用户steam设置密码</span><br></code></pre></td></tr></table></figure>
+<h3 id="5-切换到新用户下载并安装SteamCMD"><a href="#5-切换到新用户下载并安装SteamCMD" class="headerlink" title="5.切换到新用户下载并安装SteamCMD"></a>5.切换到新用户下载并安装SteamCMD</h3><p>切换至新建的steam用户</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">su - steam</span><br></code></pre></td></tr></table></figure>
+<p>下载Linux系统专用的SteamCMD</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget https:<span class="hljs-regexp">//</span>steamcdn-a.akamaihd.net<span class="hljs-regexp">/client/i</span>nstaller/steamcmd_linux.tar.gz<br></code></pre></td></tr></table></figure>
+<p>解压</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">tar</span> -zxf steamcmd_linux.tar.gz<br></code></pre></td></tr></table></figure>
+<p>运行SteamCmd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./steamcmd.sh<br></code></pre></td></tr></table></figure>
+<p>首次运行steamcmd，他会自己下载更新自己。等出现steam&gt;时，就可以对steamcmd进行操作了。</p>
+<h3 id="6-登陆steam并安装服务端"><a href="#6-登陆steam并安装服务端" class="headerlink" title="6.登陆steam并安装服务端"></a>6.登陆steam并安装服务端</h3><p>登陆前设置服务端安装目录</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">force_install_dir</span> ~/<span class="hljs-number">7</span>DaysToDieServer<br></code></pre></td></tr></table></figure>
+<p>匿名登陆</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">login anonymous</span><br></code></pre></td></tr></table></figure>
+<p>下载七日杀服务端，294420是七日杀的编号</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">app_update</span> <span class="hljs-number">294420</span> validate<br></code></pre></td></tr></table></figure>
+<p>等到出现如图所示的 Success! App ‘294420’ fully installed.之后便可以退出steamcmd了</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">quit</span> <span class="hljs-comment">#退出SteamCmd</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-配置服务端"><a href="#7-配置服务端" class="headerlink" title="7.配置服务端"></a>7.配置服务端</h3><p>进入七日杀服务端根目录</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/7DaysToDieServer</span><br></code></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lasso">vim serverconfig.<span class="hljs-built_in">xml</span><br></code></pre></td></tr></table></figure>
+<p>部分参数</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerPort&quot;</span>               <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;26900&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 默认26900 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerName&quot;</span>               <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;服务器名&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerPassword&quot;</span>           <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;服务器登入密码&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerMaxPlayerCount&quot;</span>      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;8&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 最大玩家数 默认8 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerDescription&quot;</span>        <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;服务器描述&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GameWorld&quot;</span>                <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Navezgane&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 服务器世界名 默认Navezgane --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GameName&quot;</span>                 <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;My Game&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 存档名字 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GameDifficulty&quot;</span>           <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 游戏难度 默认难度是2 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ZombiesRun&quot;</span>                <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;0&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 僵尸行走，默认值0，白天走晚上跑 1为不跑 2为一直跑 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DayNightLength&quot;</span>            <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;60&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 游戏内一天在现实世界时长（单位分钟min） --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DayLightLength&quot;</span>            <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;18&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 游戏内白天的时间（单位小时h）--&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;PlayerKillingMode&quot;</span>        <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 玩家之间能造成的伤害，0.禁止杀戮 1.只能杀死盟友 2.只能杀死陌生人 3.允许杀死所有人 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DropOnDeath&quot;</span>                <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 玩家死亡掉落，默认0.全部 1.仅腰带 2.仅背包 3.删除所有 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;MaxSpawnedZombies&quot;</span>          <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;60&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 服务器最大僵尸生成量 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;MaxSpawnedAnimals&quot;</span>          <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;50&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 服务器最大生物生成量 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;AirDropFrequency&quot;</span>           <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;72&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 空投循环生成时间（单位分钟min） --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;AirDropMarker&quot;</span>              <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 是否在地图上标记空投 默认true --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;EACEnabled&quot;</span>                 <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- #反作弊，默认true,开启可以防止玩家作弊，同时也会使部分mod不可使用。 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;TelnetEnabled&quot;</span>              <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 是否开启Telnet --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;TelnetPort&quot;</span>                 <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;8081&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- Telnet端口 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;TelnetPassword&quot;</span>             <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;mdzz&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- #Telnet密码 --&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="8-配置防火墙"><a href="#8-配置防火墙" class="headerlink" title="8.配置防火墙"></a>8.配置防火墙</h3><table>
+<thead>
+<tr>
+<th>端口</th>
+<th>协议</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8080</td>
+<td>TCP</td>
+<td>Web控制台</td>
+</tr>
+<tr>
+<td>8081</td>
+<td>TCP</td>
+<td>Telnet端口(建议不要放行)</td>
+</tr>
+<tr>
+<td>8082</td>
+<td>TCP</td>
+<td>如果安装了Alloc的mods，这个端口可以展示地图</td>
+</tr>
+<tr>
+<td>26900&#x2F;26902</td>
+<td>UDP</td>
+<td>客户端通讯</td>
+</tr>
+<tr>
+<td>如果一定要用远程telnet连接，请务必在serverconfig.xml中设置好TelnetPassword后，再放行端口。该行为有很大的风险。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="9-启动服务器"><a href="#9-启动服务器" class="headerlink" title="9.启动服务器"></a>9.启动服务器</h3><p>确保以用户<code>steam</code>执行</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">su - steam</span><br></code></pre></td></tr></table></figure>
+<p>创建一个名为7DayServer的screen，可以让服务器在后台运行，断开远程连接也不终止进程</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">screen</span> -S <span class="hljs-number">7</span>DaysServer<br></code></pre></td></tr></table></figure>
+<p>启动服务器</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">./7DaysToDieServer/startserver.sh <span class="hljs-attribute">-configfile</span>=serverconfig.xml<br></code></pre></td></tr></table></figure>
+<p>按住Ctrl + A +D 将screen加入后台运行，然后退出用户steam，接入游戏telnet</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">exit</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">telnet</span> <span class="hljs-number">127.0.0.1</span> <span class="hljs-number">8081</span><br></code></pre></td></tr></table></figure>
+<p>可以查看screen，记下7DaysServer的编号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -<span class="hljs-built_in">ls</span><br></code></pre></td></tr></table></figure>
+<p>回到进程screen</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">screen</span> -r &lt;<span class="hljs-number">7</span>DaysServer的编号&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="10-重要的路径"><a href="#10-重要的路径" class="headerlink" title="10.重要的路径"></a>10.重要的路径</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">~/<span class="hljs-number">7</span>DaysToDieServer <span class="hljs-comment"># 七日杀服务端主目录</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span>Data/Worlds <span class="hljs-comment"># 七日杀服务端地图目录</span><br>~<span class="hljs-regexp">/.local/</span>share<span class="hljs-regexp">/7DaysToDie/</span>Saves <span class="hljs-comment"># 七日杀服务端存档目录</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span><span class="hljs-number">7</span>DaysToDieServer_Data <span class="hljs-comment"># 七日杀服务器日志输出目录</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span>Mods <span class="hljs-comment"># Mods目录，需要自己创建</span><br>~<span class="hljs-regexp">/.local/</span>share<span class="hljs-regexp">/7DaysToDie/</span>Saves/serveradmin.xml <span class="hljs-comment"># 服务器配置文件</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span>serverconfig.xml <span class="hljs-comment"># 管理员配置文件</span><br></code></pre></td></tr></table></figure>
+<h3 id="11-MOD相关"><a href="#11-MOD相关" class="headerlink" title="11.MOD相关"></a>11.MOD相关</h3><p>cd至七日杀服务端主目录</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/7DaysToDieServer</span><br></code></pre></td></tr></table></figure>
+<p>创建mods文件夹</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">mkdir Mods<br></code></pre></td></tr></table></figure>
+<p>将mod文件放入Mods文件夹中即可<br>安装zip&#x2F;unzip 用于解压mod压缩包</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">apt-<span class="hljs-built_in">get</span> install zip<br></code></pre></td></tr></table></figure>
+<h3 id="12-管理员指令"><a href="#12-管理员指令" class="headerlink" title="12.管理员指令"></a>12.管理员指令</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">admin add <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-variable">&lt;权限级别&gt;</span> <span class="hljs-comment"># 给予玩家管理权限（最高级别为0）</span><br>admin remove <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-comment"># 移除玩家的管理权限</span><br>admin update <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-variable">&lt;权限等级&gt;</span> <span class="hljs-comment">#提高管理权限级别</span><br><span class="hljs-comment">#建议先在telnet用上述指令给自己管理权限</span><br><span class="hljs-comment">#然后就可以直接在游戏中，按F1使用下面的指令了</span><br>dm <span class="hljs-comment">#打开或关闭debug模式</span><br>ban <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-variable">&lt;时间&gt;</span> <span class="hljs-comment"># 禁止玩家登陆服务器一段时间(minutes, hours, days, weeks, months, years)</span><br>kill <span class="hljs-variable">&lt;id/name&gt;</span> <span class="hljs-comment"># 杀死指定玩家</span><br>listplayers lp <span class="hljs-comment"># 获取在线玩家信息</span><br>give <span class="hljs-variable">&lt;id/name&gt;</span> <span class="hljs-variable">&lt;物品&gt;</span> <span class="hljs-variable">&lt;数量&gt;</span> <span class="hljs-comment"># 给玩家刷某样东西</span><br>shutdown <span class="hljs-comment"># 关闭服务器</span><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%87%E5%BF%98/" class="category-chain-item">备忘</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ubuntu/" class="print-no-link">#ubuntu</a>
+      
+        <a href="/tags/7dtd/" class="print-no-link">#7dtd</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>记录搭建7dtd服务器</div>
+      <div>https://nekoyard.one/2023/11/04/ubuntu-7dtd-server-host/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>koneko</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/19/2023-11-19/" title="Jellyfin刮削小姐姐插件-MetaTube">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Jellyfin刮削小姐姐插件-MetaTube</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/03/unraid-docker-memory-limit/" title="今天的日记">
+                        <span class="hidden-mobile">今天的日记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"tJNG8jEcSJ6BDiO1A9UeIhHI-gzGzoHsz","appKey":"14l94qdq1VAc47zOkohWoaph","path":"window.location.pathname","placeholder":"写点什么？","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

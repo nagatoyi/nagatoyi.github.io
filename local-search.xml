@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>今天的日记</title>
+    <link href="/2024/10/12/20241012/"/>
+    <url>/2024/10/12/20241012/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/images/20241012_01.png" alt="这是一个狗头"></p><p>一个测试图片。是的，测试用了狗子图，但是这张太萌了，甚至用来当网站icon，以后什么时候看到好看的猫图再换好了。</p><p>换了主题之后一切正常，然后发现之前用的主题很久没更新了，所以像自己这种没有办法自己更新代码的人只能找稳定更新的大佬资源，要不就只能花钱用商业资源了，毕竟收钱的肯定会更稳定吧，大部分。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>在Mac M1上本地部署Stable Difffusion</title>
+    <link href="/2024/08/04/mac-m1-stable-diffusion/"/>
+    <url>/2024/08/04/mac-m1-stable-diffusion/</url>
+    
+    <content type="html"><![CDATA[<h2 id="安装homebrew"><a href="#安装homebrew" class="headerlink" title="安装homebrew"></a>安装homebrew</h2><p>参考前面的备忘</p><h2 id="安装Python（使用Anaconda创建虚拟环境）"><a href="#安装Python（使用Anaconda创建虚拟环境）" class="headerlink" title="安装Python（使用Anaconda创建虚拟环境）"></a>安装Python（使用Anaconda创建虚拟环境）</h2><h1 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h1><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>--cask anaconda<br></code></pre></td></tr></table></figure><span id="more"></span><h1 id="将其加入环境变量"><a href="#将其加入环境变量" class="headerlink" title="将其加入环境变量"></a>将其加入环境变量</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;export PATH=&quot;/opt/homebrew/anaconda3/bin:$PATH&quot;&#x27;</span>&gt;&gt; ~/.zshrc<br></code></pre></td></tr></table></figure><h1 id="激活基本环境"><a href="#激活基本环境" class="headerlink" title="激活基本环境"></a>激活基本环境</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.zshrc<br></code></pre></td></tr></table></figure><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">conda <span class="hljs-keyword">init</span> zsh<br></code></pre></td></tr></table></figure><h1 id="创建制定Python版本的虚拟环境"><a href="#创建制定Python版本的虚拟环境" class="headerlink" title="创建制定Python版本的虚拟环境"></a>创建制定Python版本的虚拟环境</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">conda</span> create --name sdwebui python=<span class="hljs-number">3</span>.<span class="hljs-number">10</span>.<span class="hljs-number">6</span><br></code></pre></td></tr></table></figure><h2 id="安装Stable-Diffusion-Webui"><a href="#安装Stable-Diffusion-Webui" class="headerlink" title="安装Stable-Diffusion-Webui"></a>安装Stable-Diffusion-Webui</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/AUTOMATIC1111/stable-diffusion-webui.git<br></code></pre></td></tr></table></figure><h2 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">conda <span class="hljs-built_in">activate</span> sdwebui<br></code></pre></td></tr></table></figure><h2 id="启动运行"><a href="#启动运行" class="headerlink" title="启动运行"></a>启动运行</h2><h1 id="切换到项目文件夹"><a href="#切换到项目文件夹" class="headerlink" title="切换到项目文件夹"></a>切换到项目文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> stable-diffusion-webui<br></code></pre></td></tr></table></figure><h1 id="启动webui"><a href="#启动webui" class="headerlink" title="启动webui"></a>启动webui</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./webui.sh<br></code></pre></td></tr></table></figure><h2 id="安装中文支持（通过扩展安装）"><a href="#安装中文支持（通过扩展安装）" class="headerlink" title="安装中文支持（通过扩展安装）"></a>安装中文支持（通过扩展安装）</h2><p>1.打开webui，点击“Extensions”<br>2.点击”Install from URL”，在”URL for extension’s git repository”输入：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/VinsonLaro/</span>stable-diffusion-webui-chinese<br></code></pre></td></tr></table></figure><p>3.点击下方的黄色按钮”Install”完成安装，然后重新启动WebUI（点击”Install from URL”左侧的”Installed”，然后点击下方的黄色按钮”Apply and restart UI”，再点击页面底部的”Reload UI”）。<br>4.点击”Settings”，在左侧选择”User interface”界面，在最下方的”Localization (requires restart)”中，选择”Chinese-All”或”Chinese-English”。<br>5.点击界面顶部的黄色按钮”Apply settings”，然后再点击右侧的”Reload UI”即可完成中文汉化。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+      <tag>mac</tag>
+      
+      <tag>AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>天凤壁纸几张</title>
+    <link href="/2024/07/24/tenhou-background-img/"/>
+    <url>/2024/07/24/tenhou-background-img/</url>
+    
+    <content type="html"><![CDATA[<p>好久没写东西了现在发日麻壁纸有点怪怪的，但是为了打的时候舒服也就做了2张，先放着，方便调用。</p><p><img src="/images/tenhoubg01.jpg">  </p><p><img src="/images/tenhoubg02.jpg">  </p><p>也没有好好去翻，后面应该会更新一下。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>备忘</tag>
+      
+      <tag>日麻</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Transmission的docker版如何新建种子文件</title>
+    <link href="/2024/01/07/transmission-docker-create-torrent/"/>
+    <url>/2024/01/07/transmission-docker-create-torrent/</url>
+    
+    <content type="html"><![CDATA[<p>先找到transmission- create<br>打开transmission的docker控制台，定位到bin</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> usr/bin<br></code></pre></td></tr></table></figure><p>用命令调用create程序</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">./transmission-create</span> -p -o /<span class="hljs-string">&quot;输出路径&quot;</span>/<span class="hljs-string">&quot;文件名&quot;</span><span class="hljs-string">.torrent</span> -t <span class="hljs-string">&quot;announce地址&quot;</span> -s <span class="hljs-string">&quot;分块大小&quot;</span> /<span class="hljs-string">&quot;要添加到种子的文件路径&quot;</span><br></code></pre></td></tr></table></figure><p>等运行完毕就可以在输出路径看到种子文件了</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>unraid</tag>
+      
+      <tag>备忘</tag>
+      
+      <tag>docker</tag>
+      
+      <tag>transmission</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Jellyfin刮削小姐姐插件-MetaTube</title>
+    <link href="/2023/11/19/2023-11-19/"/>
+    <url>/2023/11/19/2023-11-19/</url>
+    
+    <content type="html"><![CDATA[<p>原文：<a href="https://github.com/metatube-community/jellyfin-plugin-metatube/blob/main/README_ZH.md">https://github.com/metatube-community/jellyfin-plugin-metatube/blob/main/README_ZH.md</a></p><p>Jellyfin<br>进入 Jellyfin 控制台 &gt; 插件 &gt; 存储库，点击添加<br>输入存储库名称：MetaTube</p><span id="more"></span><p>适用于中国大陆的存储库URL：<a href="https://cdn.jsdelivr.net/gh/metatube-community/jellyfin-plugin-metatube@dist/manifest.json">https://cdn.jsdelivr.net/gh/metatube-community/jellyfin-plugin-metatube@dist/manifest.json</a><br>在插件目录下找到 MetaTube，点击安装<br>重启Jellyfin<br>后端列表:</p><ul><li><a href="https://metatube.pyhdxy.com/">https://metatube.pyhdxy.com/</a></li><li><a href="https://jav.mcjoker.xyz/">https://jav.mcjoker.xyz/</a></li><li><a href="https://accused-deane-koyeb9wbyckeg02.koyeb.app/">https://accused-deane-koyeb9wbyckeg02.koyeb.app/</a><br>重启后就可以正常使用了<br>第一步是新添加一个媒体库，不要和普通电影放在一个媒体库里<br>内容类型是电影<br>如果名字不符合规定的话，手动识别一下，名字只写番号</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>unraid</tag>
+      
+      <tag>Jellyfin</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>记录搭建7dtd服务器</title>
+    <link href="/2023/11/04/ubuntu-7dtd-server-host/"/>
+    <url>/2023/11/04/ubuntu-7dtd-server-host/</url>
+    
+    <content type="html"><![CDATA[<p>服务器信息：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">华为云 | <span class="hljs-type">entry_smb</span> | <span class="hljs-type">2vCPUs</span> | <span class="hljs-type">2GiB</span> | <span class="hljs-type">t7</span>.large<span class="hljs-number">.1</span> | <span class="hljs-type">Ubuntu</span> <span class="hljs-number">22.04</span> server <span class="hljs-number">64</span>bit<br></code></pre></td></tr></table></figure><span id="more"></span><h3 id="1-设置swap"><a href="#1-设置swap" class="headerlink" title="1.设置swap"></a>1.设置swap</h3><p>首先检查一下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">swapon -s <span class="hljs-comment"># 如果该命令没有返回出结果，则代表该系统尚未配置过swap</span><br><span class="hljs-built_in">df</span> -h <span class="hljs-comment"># 检查可用的存储空间</span><br></code></pre></td></tr></table></figure><p>如果没有，按如下步骤创建Swap文件。一般建议swap大小设置为自己物理内存相同或两倍。这里设置了4G。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> fallocate -l 4G /swapfile <span class="hljs-comment"># 请根据自己情况修改swap大小</span><br><span class="hljs-built_in">ls</span> -lh /swapfile<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> 600 /swapfile <span class="hljs-comment"># 更改swap文件的权限，否则会有很大的安全隐患</span><br><span class="hljs-built_in">ls</span> -lh /swapfile <span class="hljs-comment"># 然后检查是否设置完成</span><br></code></pre></td></tr></table></figure><p>启用swap文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> mkswap /swapfile<br><span class="hljs-built_in">sudo</span> swapon /swapfile <span class="hljs-comment"># 确认一下设置是否已经生效</span><br>swapon -s<br>free -m<br></code></pre></td></tr></table></figure><p>修改fstab让配置永久生效。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vim /etc/fstab<br></code></pre></td></tr></table></figure><p>文件末尾加入</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">/swapfile <span class="hljs-keyword">swap</span> <span class="hljs-keyword">swap</span> sw <span class="hljs-number">0</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure><p>swappiness参数决定了系统将数据从内存交换到swap空间的频率。该数值越接近于0，系统越倾向于不进行swap，最大限度使用物理内存。数值越接近100，越倾向于使用swap，而过多的使用swap可能导致服务器运行效率缓慢。ubuntu系统的默认推荐值是60，为了保证服务器运行效率，建议设置为10。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> /proc/sys/vm/swappiness <span class="hljs-comment"># 查看当前的swappiness</span><br><span class="hljs-built_in">sudo</span> sysctl vm.swappiness=10 <span class="hljs-comment">#修改swappiness为10</span><br></code></pre></td></tr></table></figure><p>编辑sysctl配置文件,使其永久生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vim /etc/sysctl.conf<br></code></pre></td></tr></table></figure><p>文末加入</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">vm.swappiness</span> = <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure><h3 id="2-安装screen"><a href="#2-安装screen" class="headerlink" title="2.安装screen"></a>2.安装screen</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">apt <span class="hljs-keyword">install</span> screen<br></code></pre></td></tr></table></figure><h3 id="3-安装SteamCmd运行所需环境"><a href="#3-安装SteamCmd运行所需环境" class="headerlink" title="3.安装SteamCmd运行所需环境"></a>3.安装SteamCmd运行所需环境</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">dpkg <span class="hljs-comment">--add-architecture i386  </span><br>apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span>  <br>apt-<span class="hljs-keyword">get</span> install lib32gcc-s1<br></code></pre></td></tr></table></figure><h3 id="4-创建用户"><a href="#4-创建用户" class="headerlink" title="4.创建用户"></a>4.创建用户</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">useradd</span> -m steam <span class="hljs-comment"># 新建一个名为steam的用户</span><br>passwd steam <span class="hljs-comment"># 为用户steam设置密码</span><br></code></pre></td></tr></table></figure><h3 id="5-切换到新用户下载并安装SteamCMD"><a href="#5-切换到新用户下载并安装SteamCMD" class="headerlink" title="5.切换到新用户下载并安装SteamCMD"></a>5.切换到新用户下载并安装SteamCMD</h3><p>切换至新建的steam用户</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">su - steam</span><br></code></pre></td></tr></table></figure><p>下载Linux系统专用的SteamCMD</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget https:<span class="hljs-regexp">//</span>steamcdn-a.akamaihd.net<span class="hljs-regexp">/client/i</span>nstaller/steamcmd_linux.tar.gz<br></code></pre></td></tr></table></figure><p>解压</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">tar</span> -zxf steamcmd_linux.tar.gz<br></code></pre></td></tr></table></figure><p>运行SteamCmd</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./steamcmd.sh<br></code></pre></td></tr></table></figure><p>首次运行steamcmd，他会自己下载更新自己。等出现steam&gt;时，就可以对steamcmd进行操作了。</p><h3 id="6-登陆steam并安装服务端"><a href="#6-登陆steam并安装服务端" class="headerlink" title="6.登陆steam并安装服务端"></a>6.登陆steam并安装服务端</h3><p>登陆前设置服务端安装目录</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">force_install_dir</span> ~/<span class="hljs-number">7</span>DaysToDieServer<br></code></pre></td></tr></table></figure><p>匿名登陆</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">login anonymous</span><br></code></pre></td></tr></table></figure><p>下载七日杀服务端，294420是七日杀的编号</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">app_update</span> <span class="hljs-number">294420</span> validate<br></code></pre></td></tr></table></figure><p>等到出现如图所示的 Success! App ‘294420’ fully installed.之后便可以退出steamcmd了</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">quit</span> <span class="hljs-comment">#退出SteamCmd</span><br></code></pre></td></tr></table></figure><h3 id="7-配置服务端"><a href="#7-配置服务端" class="headerlink" title="7.配置服务端"></a>7.配置服务端</h3><p>进入七日杀服务端根目录</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/7DaysToDieServer</span><br></code></pre></td></tr></table></figure><p>编辑配置文件</p><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lasso">vim serverconfig.<span class="hljs-built_in">xml</span><br></code></pre></td></tr></table></figure><p>部分参数</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerPort&quot;</span>               <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;26900&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 默认26900 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerName&quot;</span>               <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;服务器名&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerPassword&quot;</span>           <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;服务器登入密码&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerMaxPlayerCount&quot;</span>      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;8&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 最大玩家数 默认8 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ServerDescription&quot;</span>        <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;服务器描述&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GameWorld&quot;</span>                <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Navezgane&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 服务器世界名 默认Navezgane --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GameName&quot;</span>                 <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;My Game&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 存档名字 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GameDifficulty&quot;</span>           <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 游戏难度 默认难度是2 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ZombiesRun&quot;</span>                <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;0&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 僵尸行走，默认值0，白天走晚上跑 1为不跑 2为一直跑 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DayNightLength&quot;</span>            <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;60&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 游戏内一天在现实世界时长（单位分钟min） --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DayLightLength&quot;</span>            <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;18&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 游戏内白天的时间（单位小时h）--&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;PlayerKillingMode&quot;</span>        <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 玩家之间能造成的伤害，0.禁止杀戮 1.只能杀死盟友 2.只能杀死陌生人 3.允许杀死所有人 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DropOnDeath&quot;</span>                <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 玩家死亡掉落，默认0.全部 1.仅腰带 2.仅背包 3.删除所有 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;MaxSpawnedZombies&quot;</span>          <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;60&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 服务器最大僵尸生成量 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;MaxSpawnedAnimals&quot;</span>          <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;50&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 服务器最大生物生成量 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;AirDropFrequency&quot;</span>           <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;72&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 空投循环生成时间（单位分钟min） --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;AirDropMarker&quot;</span>              <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 是否在地图上标记空投 默认true --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;EACEnabled&quot;</span>                 <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- #反作弊，默认true,开启可以防止玩家作弊，同时也会使部分mod不可使用。 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;TelnetEnabled&quot;</span>              <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 是否开启Telnet --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;TelnetPort&quot;</span>                 <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;8081&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- Telnet端口 --&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;TelnetPassword&quot;</span>             <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;mdzz&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- #Telnet密码 --&gt;</span><br></code></pre></td></tr></table></figure><h3 id="8-配置防火墙"><a href="#8-配置防火墙" class="headerlink" title="8.配置防火墙"></a>8.配置防火墙</h3><table><thead><tr><th>端口</th><th>协议</th><th>说明</th></tr></thead><tbody><tr><td>8080</td><td>TCP</td><td>Web控制台</td></tr><tr><td>8081</td><td>TCP</td><td>Telnet端口(建议不要放行)</td></tr><tr><td>8082</td><td>TCP</td><td>如果安装了Alloc的mods，这个端口可以展示地图</td></tr><tr><td>26900&#x2F;26902</td><td>UDP</td><td>客户端通讯</td></tr><tr><td>如果一定要用远程telnet连接，请务必在serverconfig.xml中设置好TelnetPassword后，再放行端口。该行为有很大的风险。</td><td></td><td></td></tr></tbody></table><h3 id="9-启动服务器"><a href="#9-启动服务器" class="headerlink" title="9.启动服务器"></a>9.启动服务器</h3><p>确保以用户<code>steam</code>执行</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">su - steam</span><br></code></pre></td></tr></table></figure><p>创建一个名为7DayServer的screen，可以让服务器在后台运行，断开远程连接也不终止进程</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">screen</span> -S <span class="hljs-number">7</span>DaysServer<br></code></pre></td></tr></table></figure><p>启动服务器</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">./7DaysToDieServer/startserver.sh <span class="hljs-attribute">-configfile</span>=serverconfig.xml<br></code></pre></td></tr></table></figure><p>按住Ctrl + A +D 将screen加入后台运行，然后退出用户steam，接入游戏telnet</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">exit</span><br></code></pre></td></tr></table></figure><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">telnet</span> <span class="hljs-number">127.0.0.1</span> <span class="hljs-number">8081</span><br></code></pre></td></tr></table></figure><p>可以查看screen，记下7DaysServer的编号</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">screen -<span class="hljs-built_in">ls</span><br></code></pre></td></tr></table></figure><p>回到进程screen</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">screen</span> -r &lt;<span class="hljs-number">7</span>DaysServer的编号&gt;<br></code></pre></td></tr></table></figure><h3 id="10-重要的路径"><a href="#10-重要的路径" class="headerlink" title="10.重要的路径"></a>10.重要的路径</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">~/<span class="hljs-number">7</span>DaysToDieServer <span class="hljs-comment"># 七日杀服务端主目录</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span>Data/Worlds <span class="hljs-comment"># 七日杀服务端地图目录</span><br>~<span class="hljs-regexp">/.local/</span>share<span class="hljs-regexp">/7DaysToDie/</span>Saves <span class="hljs-comment"># 七日杀服务端存档目录</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span><span class="hljs-number">7</span>DaysToDieServer_Data <span class="hljs-comment"># 七日杀服务器日志输出目录</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span>Mods <span class="hljs-comment"># Mods目录，需要自己创建</span><br>~<span class="hljs-regexp">/.local/</span>share<span class="hljs-regexp">/7DaysToDie/</span>Saves/serveradmin.xml <span class="hljs-comment"># 服务器配置文件</span><br>~<span class="hljs-regexp">/7DaysToDieServer/</span>serverconfig.xml <span class="hljs-comment"># 管理员配置文件</span><br></code></pre></td></tr></table></figure><h3 id="11-MOD相关"><a href="#11-MOD相关" class="headerlink" title="11.MOD相关"></a>11.MOD相关</h3><p>cd至七日杀服务端主目录</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/7DaysToDieServer</span><br></code></pre></td></tr></table></figure><p>创建mods文件夹</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">mkdir Mods<br></code></pre></td></tr></table></figure><p>将mod文件放入Mods文件夹中即可<br>安装zip&#x2F;unzip 用于解压mod压缩包</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">apt-<span class="hljs-built_in">get</span> install zip<br></code></pre></td></tr></table></figure><h3 id="12-管理员指令"><a href="#12-管理员指令" class="headerlink" title="12.管理员指令"></a>12.管理员指令</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">admin add <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-variable">&lt;权限级别&gt;</span> <span class="hljs-comment"># 给予玩家管理权限（最高级别为0）</span><br>admin remove <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-comment"># 移除玩家的管理权限</span><br>admin update <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-variable">&lt;权限等级&gt;</span> <span class="hljs-comment">#提高管理权限级别</span><br><span class="hljs-comment">#建议先在telnet用上述指令给自己管理权限</span><br><span class="hljs-comment">#然后就可以直接在游戏中，按F1使用下面的指令了</span><br>dm <span class="hljs-comment">#打开或关闭debug模式</span><br>ban <span class="hljs-variable">&lt;玩家名&gt;</span> <span class="hljs-variable">&lt;时间&gt;</span> <span class="hljs-comment"># 禁止玩家登陆服务器一段时间(minutes, hours, days, weeks, months, years)</span><br>kill <span class="hljs-variable">&lt;id/name&gt;</span> <span class="hljs-comment"># 杀死指定玩家</span><br>listplayers lp <span class="hljs-comment"># 获取在线玩家信息</span><br>give <span class="hljs-variable">&lt;id/name&gt;</span> <span class="hljs-variable">&lt;物品&gt;</span> <span class="hljs-variable">&lt;数量&gt;</span> <span class="hljs-comment"># 给玩家刷某样东西</span><br>shutdown <span class="hljs-comment"># 关闭服务器</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ubuntu</tag>
+      
+      <tag>7dtd</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>今天的日记</title>
+    <link href="/2023/11/03/unraid-docker-memory-limit/"/>
+    <url>/2023/11/03/unraid-docker-memory-limit/</url>
+    
+    <content type="html"><![CDATA[<p>记录一下限制unraid主机docker内存用量的方法</p><h4 id="1-启动容器时限制容器内存用量"><a href="#1-启动容器时限制容器内存用量" class="headerlink" title="1.启动容器时限制容器内存用量"></a>1.启动容器时限制容器内存用量</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> run -m <span class="hljs-number">1</span>g --memory-swap -<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><h4 id="2-限制已经启动的容器内存用量"><a href="#2-限制已经启动的容器内存用量" class="headerlink" title="2.限制已经启动的容器内存用量"></a>2.限制已经启动的容器内存用量</h4><p>先停止容器</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">docker stop containerId<br></code></pre></td></tr></table></figure><p>限制用量</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> update containerId -m <span class="hljs-number">1</span>g --memory-swap -<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>启动容器</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">docker <span class="hljs-literal">start</span> containerId<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>unraid</tag>
+      
+      <tag>docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Unraid app 记录</title>
+    <link href="/2023/10/24/unraid-app-list/"/>
+    <url>/2023/10/24/unraid-app-list/</url>
+    
+    <content type="html"><![CDATA[<p>2023.11.19更新<br>2023.10.26更新<br>最最最先装下面这个方便设置代理的插件：<br>PROXY EDITOR<br>可以在Gittee 平台拉取：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>tee.com<span class="hljs-regexp">/ludoux/u</span>nraid-proxy-editor<span class="hljs-regexp">/raw/m</span>aster/proxy.editor.plg<br></code></pre></td></tr></table></figure><p>然后可以挂上现有的，方便搭梯子的设备挂上。</p><p>记录一下现在用的unread的插件及docker应用，基本都可以在app商店搜到</p><span id="more"></span><h4 id="插件："><a href="#插件：" class="headerlink" title="插件："></a>插件：</h4><ul><li>Appdata Backup（自动备份app数据）</li><li>CA Auto Update Applications（自动升级app）</li><li>CA Cleanup Appdata（清理app数据）</li><li>Community Applications（app商店）</li><li>Dynamix File Manager（系统文件管理）</li><li>Dynamix S3 Sleep（系统休眠工具）</li><li>Dynamix System Temperature（显示更多硬件温度数据）</li><li>Fix Common Problems（自动查找系统问题并提出解决方法）</li><li>GPU Statistics（GPU状态面板）</li><li>Intel GPU TOP（intelGPU驱动）</li><li>unBALANCE（迁移文件数据）</li><li>Unraid Connect</li><li>User Scripts（自定义脚本）</li></ul><h4 id="Docker-app"><a href="#Docker-app" class="headerlink" title="Docker app"></a>Docker app</h4><ul><li>adminer （其实可以不用，只是方便以图形UI管理数据库）</li><li>Apache-WebDAV（远程webdav服务）</li><li>aria2-pro（aria2下载工具）</li><li>jellyfin（多媒体服务器）<br><del>* mariadb</del><br><del>* PhotoPrism（照片库）</del></li><li>v2rayA（科学上网）<br><del>* AutoBangumi（自动追番，通过<code>estrellaxd/auto_bangumi</code>安装）</del></li><li>qbittorrent（自动下番）</li><li>Heimdall（整理应用）</li><li>ddns-go</li><li>Komga（漫画阅读器）<br><del>* TinyMediaManager（手动刮削器）</del></li><li>ZeroTier（没有公网IP就靠它了）</li><li>NginxProxyManager（反向代理）</li><li>FileBrowser（简单的文件浏览）</li><li>Krusader（文件管理，主要可以压缩解压）</li><li>transmission（挂PT）</li><li>syncthing（同步文件）</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+      <tag>Unraid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mac重置启动台图标</title>
+    <link href="/2023/08/06/mac-reset-launch-pad/"/>
+    <url>/2023/08/06/mac-reset-launch-pad/</url>
+    
+    <content type="html"><![CDATA[<p>打开终端，输入以下内容：</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">defaults write com.apple.dock ResetLaunchPad -<span class="hljs-type">bool</span> <span class="hljs-literal">true</span><br>killall Dock<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>mac</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>今天的日记</title>
+    <link href="/2023/07/31/2023-07-31/"/>
+    <url>/2023/07/31/2023-07-31/</url>
+    
+    <content type="html"><![CDATA[<p>感觉现在每天脑袋都空空如也，没有装什么实质的内容，就像一间堆满垃圾的房间，想收拾但是无从下手，可能就是懒。<br>知道要改变就必须从行动开始，不管从哪里开始，但是有行动就可能有变化。<br>道理都懂只是懒</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>泡泡的近照</title>
+    <link href="/2023/03/11/2023-03-11/"/>
+    <url>/2023/03/11/2023-03-11/</url>
+    
+    <content type="html"><![CDATA[<p>最近泡泡还是一样的黏人，开始担任厕所守护者的工作。<br><img src="/images/WechatIMG391.webp"><br>可能正因为自己增加了不少工作量，所以每天会积累更多的困能量，早上醒来会看到还处于呆滞状的泡泡。<br><img src="/images/WechatIMG392.webp"><br>习惯了枕头的泡泡在沙发上的时候也会找一个枕头的替代品，不过就我看用起来并不怎么舒服就是了，可能也是一种锻炼方式？<br><img src="/images/WechatIMG394.webp"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+      <tag>泡泡</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>好久没更新了</title>
+    <link href="/2023/03/02/2023-03-02/"/>
+    <url>/2023/03/02/2023-03-02/</url>
+    
+    <content type="html"><![CDATA[<p>好久没写东西了，差不多快忘记怎么更新这玩意啦</p><p>随便写点什么</p><p>再加一张泡泡的照片吧</p><p><img src="/images/WechatIMG26792.webp"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>准备重置电脑系统</title>
+    <link href="/2022/12/21/mac-app-backup/"/>
+    <url>/2022/12/21/mac-app-backup/</url>
+    
+    <content type="html"><![CDATA[<p>折腾过很多乱七八糟的东西之后就想着重新安装一下系统，感觉应该是某种洁癖。</p><p>这里记录一下现在用的，用着顺手的一些软件。</p><span id="more"></span><h3 id="首先是App-Store里的"><a href="#首先是App-Store里的" class="headerlink" title="首先是App Store里的"></a>首先是App Store里的</h3><ol><li>通讯<ul><li>微信</li><li>QQ</li><li>Telegram</li></ul></li><li>文档处理<ul><li>WPS Office</li></ul></li><li>系统辅助<ul><li>Magnet</li><li>Strongbox  (Non- Universal)</li><li>Caffeinated</li><li>腾讯柠檬清理</li></ul></li><li>媒体播放<ul><li>Pixea</li><li>Omni Player</li><li>Pine Player</li></ul></li><li>媒体处理<ul><li>Pixelmator Pro</li></ul></li><li>Safari插件<ul><li>AdBlocker Pro</li></ul></li></ol><h3 id="然后是外部软件"><a href="#然后是外部软件" class="headerlink" title="然后是外部软件"></a>然后是外部软件</h3><ol><li>系统辅助<ul><li>Snipaste <a href="https://www.snipaste.com/">官网</a></li><li>MacZip <a href="https://maczip.cn/">官网</a></li><li>eqMac <a href="https://eqmac.app/">官网</a></li><li>AppCleaner <a href="https://freemacsoft.net/appcleaner/">官网</a></li></ul></li><li>媒体播放<ul><li>iina <a href="https://iina.io/">官网</a></li><li>NeatReader <a href="https://www.neat-reader.com/">官网</a></li><li>comi <a href="https://github.com/yumenaka/comi">官网</a></li></ul></li><li>文本处理<ul><li>Sublime Text <a href="https://www.sublimetext.com/">官网</a></li><li>Obsidian <a href="https://obsidian.md/">官网</a></li></ul></li><li>网络软件<ul><li>Chrome <a href="https://www.google.com/chrome/">官网</a></li><li>Downie <a href="https://software.charliemonroe.net/downie/">官网</a></li><li>Motrix <a href="https://motrix.app/">官网</a></li><li>ClashX <a href="https://github.com/yichengchen/clashX">官网</a></li><li>Termius <a href="https://termius.com/">官网</a></li></ul></li><li>媒体处理<ul><li>Clip Studio Paint <a href="https://www.clipstudio.net/">官网</a></li></ul></li><li>外设配套软件<ul><li>Wacom 驱动 <a href="https://www.wacom.com/en-us/support/product-support/drivers">官网</a></li><li>ANNE PRO 设置软件 <a href="https://www.hexcore.xyz/zh/obinskit">官网</a></li></ul></li><li>Chrome插件（虽然能同步）<ul><li>猫抓 <a href="https://github.com/xifangczy/cat-catch">官网</a> <a href="https://chrome.google.com/webstore/detail/%E7%8C%AB%E6%8A%93/jfedfbgedapdagkghmgibemcoggfppbb">插件页面</a></li><li>Proxy SwitchyOmega <a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif">插件页面</a></li><li>Strongbox AutoFill <a href="https://chrome.google.com/webstore/detail/strongbox-autofill/mnilpkfepdibngheginihjpknnopchbn">插件页面</a></li><li>Aria2 for Chrome <a href="https://chrome.google.com/webstore/detail/aria2-for-chrome/mpkodccbngfoacfalldjimigbofkhgjn">插件页面</a></li><li>AdBlock <a href="https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom">插件页面</a></li><li>隐形滚动条 <a href="https://chrome.google.com/webstore/detail/invisible-scrollbar/nphnhlhdlbonnekhjlmphinfnmekiifk">插件页面</a></li><li>Stylish <a href="https://userstyles.org/">官网</a> <a href="https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe">插件页面</a></li></ul></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>mac</tag>
+      
+      <tag>软件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Debian搭建Tor网桥</title>
+    <link href="/2022/12/07/vps-set-tor-bridge/"/>
+    <url>/2022/12/07/vps-set-tor-bridge/</url>
+    
+    <content type="html"><![CDATA[<p>安装’obfs4proxy’和’tor’:</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">apt update -<span class="hljs-attribute">y</span><br>apt install tor obfs4proxy -<span class="hljs-attribute">y</span><br></code></pre></td></tr></table></figure><p>编辑’tor’配置文件：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">nano <span class="hljs-regexp">/etc/</span>tor/torrc<br></code></pre></td></tr></table></figure><p>添加下面的配置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">BridgeRelay 1<br>ORPort 9001<br>ServerTransportPlugin obfs4 <span class="hljs-built_in">exec</span> /usr/bin/obfs4proxy<br>ExtORPort auto <span class="hljs-comment"># 这里的obfs4混淆使用随机端口，确保你的机器防火墙是关闭状态</span><br>ContactInfo xxx@xxx.xxx <span class="hljs-comment"># 邮箱地址，用于联系节点维护人员</span><br>Nickname Xenon <span class="hljs-comment"># 节点的昵称，可以自己随便填写</span><br>PublishServerDescriptor 0 <span class="hljs-comment"># 取消BridgeDB收集你的服务器信息</span><br></code></pre></td></tr></table></figure><p>重启’tor’：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart tor</span><br></code></pre></td></tr></table></figure><p>设置开机自动启动：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">systemctl <span class="hljs-built_in">enable</span> tor<br></code></pre></td></tr></table></figure><p>完毕。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vps</tag>
+      
+      <tag>tor</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>深夜测试</title>
+    <link href="/2022/12/04/try-the-phone/"/>
+    <url>/2022/12/04/try-the-phone/</url>
+    
+    <content type="html"><![CDATA[<p>测试手机更新</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>今天的日记</title>
+    <link href="/2022/12/03/2022-12-03/"/>
+    <url>/2022/12/03/2022-12-03/</url>
+    
+    <content type="html"><![CDATA[<p>上了一天班之后又是周末，本来应该很开心的，不过泡泡的右眼出了点状况，加上这几天天气一直不好，持续阴冷。<br>估计泡泡和我一样开心不起来吧。<br>下面是泡泡泛红的小眼睛。<br><img src="/images/IMG_20221203_131658.webp"><br>了解了一下可能是进了脏东西或是患上了结膜炎，到下午的时候看起来有明显好转，放心不少，不过也决定后面要注意他的眼睛清洁问题了。</p><span id="more"></span><p>虽然泡泡非常爱干净，醒着的时间大部分都用来清理自己，来家里至今很少洗澡还能保持非常干净，但是眼睛毕竟还是很敏感脆弱，需要其他人来帮忙关照一下吧。<br>下午的时候泡泡一直在腿上睡觉，感觉是在自我疗愈。<br><img src="/images/IMG_20221203_165843.webp"><br>就是在写这些东西的时候还是在我腿上睡觉，平时很活泼开朗的泡泡也抵挡不住疾病的困扰啊。<br>果然这个世界生命健康才是最重要的。<br>下面是前两天皱眉的泡泡。<br><img src="/images/IMG_20221201_114930.webp"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+      <tag>泡泡</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>泡泡的近照</title>
+    <link href="/2022/11/29/pao-pao-pics-20221129/"/>
+    <url>/2022/11/29/pao-pao-pics-20221129/</url>
+    
+    <content type="html"><![CDATA[<p>前面没有薅到的都要补回来，感觉泡泡也是这么想的。<br><img src="/images/IMG_20221127_225759.webp"><br>可以用各种姿势睡觉，大多是时候都要抱着睡。<br><img src="/images/IMG_20221129_124,404.webp"><br><img src="/images/IMG_20221128_124,802.webp"></p><span id="more"></span><p>可能和天冷起来了也有关系。<br><img src="/images/IMG_20221128_122802.webp"><br><img src="/images/IMG_20221127_093614.webp"><br>这几天的泡泡是各种黏人，时刻展示自己的优势：粉嫩的肉垫。<br><img src="/images/IMG_20221127_150901.webp"><br><img src="/images/IMG_20221127_101847.webp"><br>总觉得可以当作新型毒品啦。<br>泡泡把它保养的色泽和柔软度都超赞的。<br><img src="/images/IMG_20221126_175554.webp"><br>泡泡疑惑脸。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>泡泡</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>让vps设置更简洁</title>
+    <link href="/2022/11/27/make-vps-simple/"/>
+    <url>/2022/11/27/make-vps-simple/</url>
+    
+    <content type="html"><![CDATA[<p>应该是有些强迫症吧，对昨天让自己大费周章的<code>lnmp</code>非常不爽，想想自己应该也用不上其他组件，至少近期暂时是用不上了，那花费大量的下载和配置时间是为啥呢？我只需要<code>nginx</code>就好了呀。<br>于是重置了vps重新安装了<code>git</code>和独立的<code>nginx</code>。<code>nginx</code>十几秒就安装完毕，和前面等待半小时形成鲜明对比。<br>安装位置改变了，需要修改的配置文件在下面的路径：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/</span>nginx/sites-enabled<br></code></pre></td></tr></table></figure><p>里面就一个<code>default</code>文件，修改网站root文件夹位置和域名信息就好了。<br>配置完毕之后重启<code>nginx</code>服务：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">service nginx restart</span><br></code></pre></td></tr></table></figure><p>然后<code>hexo d</code>就完工啦。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vps</tag>
+      
+      <tag>折腾</tag>
+      
+      <tag>nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>把hexo搬到了vps上</title>
+    <link href="/2022/11/26/move-hexo-to-vps/"/>
+    <url>/2022/11/26/move-hexo-to-vps/</url>
+    
+    <content type="html"><![CDATA[<p>主要是记录一下关键步骤。<br>这里vps系统为Debian 11。</p><h3 id="下面是主要步骤："><a href="#下面是主要步骤：" class="headerlink" title="下面是主要步骤："></a>下面是主要步骤：</h3><span id="more"></span><h4 id="1-本地安装nodejs、npm、hexo"><a href="#1-本地安装nodejs、npm、hexo" class="headerlink" title="1.本地安装nodejs、npm、hexo"></a>1.本地安装nodejs、npm、hexo</h4><p>前面有过备忘就不再重复啦。<br>不过注意需要安装’deployer插件’：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure><h4 id="2-vps安装git："><a href="#2-vps安装git：" class="headerlink" title="2.vps安装git："></a>2.vps安装git：</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake">apt update<br>apt <span class="hljs-keyword">install</span> git<br></code></pre></td></tr></table></figure><p>然后可以检查一下是否安装成功：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">git <span class="hljs-comment">--version</span><br></code></pre></td></tr></table></figure><h4 id="3-vps安装nginx"><a href="#3-vps安装nginx" class="headerlink" title="3.vps安装nginx"></a>3.vps安装nginx</h4><p>先更新系统：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt update &amp;&amp; <span class="hljs-built_in">sudo</span> apt upgrade<br></code></pre></td></tr></table></figure><p>安装nginx：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install nginx<br></code></pre></td></tr></table></figure><p>启动nginx：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl start nginx<br></code></pre></td></tr></table></figure><p>检查nginx状态：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl status nginx<br></code></pre></td></tr></table></figure><p>如果一切顺利，您应该会看到”active (running)”的消息。</p><p>配置防火墙：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow <span class="hljs-string">&#x27;Nginx HTTP&#x27;</span><br><span class="hljs-built_in">sudo</span> ufw allow <span class="hljs-string">&#x27;Nginx HTTPS&#x27;</span><br></code></pre></td></tr></table></figure><p>为了允许访问Nginx，需要打开端口80和&#x2F;或443。</p><p>检查Nginx</p><p>现在可以通过打开Web浏览器并在地址栏中输入服务器的IP地址来检查Nginx是否工作。应该会看到默认的Nginx欢迎页面。</p><h4 id="4-新建用户并加入root组："><a href="#4-新建用户并加入root组：" class="headerlink" title="4.新建用户并加入root组："></a>4.新建用户并加入root组：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">adduser git<br>usermod -aG <span class="hljs-built_in">sudo</span> git<br></code></pre></td></tr></table></figure><h4 id="5-配置git用户的ssh登陆（这里折腾了好久，记录详细一点"><a href="#5-配置git用户的ssh登陆（这里折腾了好久，记录详细一点" class="headerlink" title="5.配置git用户的ssh登陆（这里折腾了好久，记录详细一点"></a>5.配置git用户的ssh登陆（这里折腾了好久，记录详细一点</h4><p>切换到git用户：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">su git</span><br></code></pre></td></tr></table></figure><p>切换到git用户目录:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home/git<br></code></pre></td></tr></table></figure><p>生成ssh密钥：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh-keygen -t rsa</span><br></code></pre></td></tr></table></figure><p>进入.ssh文件夹：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> <span class="hljs-string">.ssh</span><br></code></pre></td></tr></table></figure><p>将公钥写入到authorized_keys中：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> authorized_keys<br><span class="hljs-built_in">cat</span> id_rsa.pub &gt;&gt; authorized_keys<br></code></pre></td></tr></table></figure><p>给文件相应的权限：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> 600 authorized_keys<br><span class="hljs-built_in">chmod</span> 700 ~/.ssh<br></code></pre></td></tr></table></figure><p>修改ssh的配置文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /etc/ssh<br>nano sshd_config<br></code></pre></td></tr></table></figure><p>修改下面的内容：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">PubkeyAuthentication <span class="hljs-built_in">yes</span> <span class="hljs-comment"># yes表示允许密钥登陆</span><br>AuthorizedKeysFile      .ssh/authorized_keys .ssh/authorized_keys2 <span class="hljs-comment"># 指定密钥的文件位置</span><br>PasswordAuthentication no <span class="hljs-comment"># 不允许使用密码登陆，等测试密钥登陆成功了再修改此条，以防无法登陆</span><br></code></pre></td></tr></table></figure><p>重启ssh服务：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart ssh</span><br></code></pre></td></tr></table></figure><h4 id="6-下载密钥测试ssh登陆情况（在本地终端中）"><a href="#6-下载密钥测试ssh登陆情况（在本地终端中）" class="headerlink" title="6.下载密钥测试ssh登陆情况（在本地终端中）"></a>6.下载密钥测试ssh登陆情况（在本地终端中）</h4><p>下载密钥到<code>.ssh</code>文件夹中：</p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">scp git<span class="hljs-variable">@server</span><span class="hljs-symbol">://home/git/</span>.ssh/id_rsa /<span class="hljs-title class_">Users</span>/usr/.ssh<br></code></pre></td></tr></table></figure><p>测试连接情况：</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> git<span class="hljs-variable">@server</span><br></code></pre></td></tr></table></figure><p>前面折腾到这里的时候有提示<code>Permissions 0644 for &#39;xxx&#39; are too open.</code>。查到的解决方法如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> 400 ~/.ssh/id_rsa<br></code></pre></td></tr></table></figure><p>正常情况是不用密码就可以登陆vps了。</p><h4 id="7-建立空git仓库并配置hook"><a href="#7-建立空git仓库并配置hook" class="headerlink" title="7.建立空git仓库并配置hook"></a>7.建立空git仓库并配置hook</h4><p>新建一个仓库：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> <span class="hljs-string">/home/git</span><br>git init <span class="hljs-params">--bare</span> blog.git<br></code></pre></td></tr></table></figure><p>配置hook：</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">nano ~<span class="hljs-regexp">/blog.git/</span>hooks/post-receive<br></code></pre></td></tr></table></figure><p>填入以下内容：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>GIT_REPO=/home/git/blog.git<br>TMP_GIT_CLONE=/tmp/blog<br>PUBLIC_WWW=/home/git/www/blog<br><span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$&#123;TMP_GIT_CLONE&#125;</span><br>git <span class="hljs-built_in">clone</span> <span class="hljs-variable">$GIT_REPO</span> <span class="hljs-variable">$TMP_GIT_CLONE</span><br><span class="hljs-built_in">rm</span> -rf <span class="hljs-variable">$&#123;PUBLIC_WWW&#125;</span>/*<br><span class="hljs-built_in">cp</span> -rf <span class="hljs-variable">$&#123;TMP_GIT_CLONE&#125;</span>/* <span class="hljs-variable">$&#123;PUBLIC_WWW&#125;</span><br></code></pre></td></tr></table></figure><p>这里使用了<code>/home/git/www/blog</code>的路径作为网站根目录，添加一下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> www;<span class="hljs-built_in">mkdir</span> www/blog<br></code></pre></td></tr></table></figure><p>然后给hook添加可执行权限：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> +x ~/blog.git/hooks/post-receive<br></code></pre></td></tr></table></figure><h4 id="8-配置nginx"><a href="#8-配置nginx" class="headerlink" title="8.配置nginx"></a>8.配置nginx</h4><p>编辑配置文件<br>地址在：<code>/etc/nginx/sites-available</code></p><p>编辑default内容：</p><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">server</span><br>    &#123;<br>        listen <span class="hljs-number">80</span> default_server;<br>        <span class="hljs-meta">#listen [::]:80 default_server ipv6only=on;</span><br>        server_name 你的域名;<br>        <span class="hljs-keyword">index</span> <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.htm <span class="hljs-keyword">index</span>.php;<br>        root /home/git/www/blog;<br>    <br>        ...<br>    &#125;<br></code></pre></td></tr></table></figure><p>检查配置有无错误：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">nginx -t</span><br></code></pre></td></tr></table></figure><p>重启服务：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart nginx</span><br></code></pre></td></tr></table></figure><h4 id="9-配置本地hexo服务"><a href="#9-配置本地hexo服务" class="headerlink" title="9.配置本地hexo服务"></a>9.配置本地hexo服务</h4><p>修改<code>_config.yml</code>文件:</p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="hljs-symbol">deploy:</span><br>  <span class="hljs-symbol">type:</span> git<br>  <span class="hljs-symbol">repo:</span> git<span class="hljs-variable">@server</span><span class="hljs-symbol">:/home/git/blog</span>.git<br>  <span class="hljs-symbol">brach:</span> master<br></code></pre></td></tr></table></figure><p>这里缩进很重要，参考的教程那样后面deploy的时候肯定会报错的。</p><h4 id="10-部署文件到vps"><a href="#10-部署文件到vps" class="headerlink" title="10.部署文件到vps"></a>10.部署文件到vps</h4><p>这里就很简单啦：</p><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sas">hexo clean <span class="hljs-variable">&amp;&amp;</span> hexo g <span class="hljs-variable">&amp;&amp;</span> hexo d<br></code></pre></td></tr></table></figure><p>当然是写完文章之后。</p><h4 id="11-获取ssl证书"><a href="#11-获取ssl证书" class="headerlink" title="11.获取ssl证书"></a>11.获取ssl证书</h4><p>安装certbot：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">apt -y <span class="hljs-keyword">install</span> certbot<br></code></pre></td></tr></table></figure><p>停止nginx，防止端口占用：</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">systemctl stop nginx<br></code></pre></td></tr></table></figure><p>为域名申请证书：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">certbot certonly <span class="hljs-comment">--standalone -d 域名 -d www.域名</span><br></code></pre></td></tr></table></figure><p>查看域名路径及过期时间：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">certbot certificates</span><br></code></pre></td></tr></table></figure><p>配置nginx：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ruby">listen <span class="hljs-number">443</span> ssl;<br>listen [<span class="hljs-symbol">:</span><span class="hljs-symbol">:</span>]<span class="hljs-symbol">:</span><span class="hljs-number">443</span> ssl default_server;<br>ssl_certificate /etc/letsencrypt/live/域名/fullchain.pem;<br>ssl_certificate_key /etc/letsencrypt/live/域名/privkey.pem;<br>ssl_protocols <span class="hljs-title class_">TLSv1</span>.<span class="hljs-number">2</span> <span class="hljs-title class_">TLSv1</span>.<span class="hljs-number">3</span>;<br>ssl_ciphers <span class="hljs-variable constant_">ECDHE</span>-<span class="hljs-variable constant_">RSA</span>-<span class="hljs-variable constant_">AES256</span>-<span class="hljs-variable constant_">GCM</span>-<span class="hljs-variable constant_">SHA512</span><span class="hljs-symbol">:DHE-RSA-AES256-GCM-SHA512</span><span class="hljs-symbol">:ECDHE-RSA-AES256-GCM-SHA384</span><span class="hljs-symbol">:DHE-RSA-AES256-GCM-SHA384</span><span class="hljs-symbol">:ECDHE-RSA-AES256-SHA384</span>;<br>ssl_ecdh_curve secp384r1;<br>ssl_prefer_server_ciphers on;<br>ssl_session_cache <span class="hljs-symbol">shared:</span><span class="hljs-variable constant_">SSL</span><span class="hljs-symbol">:</span>10m;<br>ssl_session_timeout 10m;<br>ssl_session_tickets off;<br>keepalive_timeout <span class="hljs-number">70</span>;<br></code></pre></td></tr></table></figure><p>检查配置：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">nginx -t</span><br></code></pre></td></tr></table></figure><p>重启nginx：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart nginx</span><br></code></pre></td></tr></table></figure><h4 id="12-设置证书自动更新"><a href="#12-设置证书自动更新" class="headerlink" title="12.设置证书自动更新"></a>12.设置证书自动更新</h4><p>Let’s Encrypt证书的有效期是三个月，超过期限则需要续签。证书续期可以手动完成，例如：</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">certbot</span> <span class="hljs-string">renew</span> <span class="hljs-built_in">--pre-hook</span> <span class="hljs-string">&quot;service nginx stop&quot;</span> <span class="hljs-built_in">--post-hook</span> <span class="hljs-string">&quot;service nginx start&quot;</span><br></code></pre></td></tr></table></figure><p>也可以配置crontab任务自动续签，编辑任务计划：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">crontab -e</span><br></code></pre></td></tr></table></figure><p>添加：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># 每2个月执行一次</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> */<span class="hljs-number">2</span> <span class="hljs-number">0</span> certbot renew --pre-hook <span class="hljs-string">&quot;service nginx stop&quot;</span> --post-hook <span class="hljs-string">&quot;service nginx start&quot;</span><br></code></pre></td></tr></table></figure><p>重启任务计划：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-regexp">/etc/</span><span class="hljs-keyword">init</span>.d<span class="hljs-operator">/</span>cron restart<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+      <tag>vps</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>又踏上了支援防疫的道路</title>
+    <link href="/2022/11/20/vi-yr-fh-yi/"/>
+    <url>/2022/11/20/vi-yr-fh-yi/</url>
+    
+    <content type="html"><![CDATA[<p>今天上午突然被通知马上要支援区里的防疫工作，草草收拾好行李，吃过午饭便出门前往安排的地点了。<br>这次的通知给的报道时间还算宽裕，上次早上五点电话通知要立刻马上出发，整个人都是懵的，带上的衣物都不太够，只够安排好照顾泡泡的事情。<br>这次不想让泡泡再到外面奔波，就拜托同事定期过来帮忙投喂一下了。<br><img src="/images/1668942902428.webp"><br>现在只希望疫情快点过去，至少防疫工作轻松点吧，能回到自己习惯的日常。<br>快晚上九点了，泡泡这时候还在等我回去。<br><img src="/images/1668948015458.webp"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>疫情</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>测试腾讯的图床</title>
+    <link href="/2022/11/20/tu-il-ce-ui/"/>
+    <url>/2022/11/20/tu-il-ce-ui/</url>
+    
+    <content type="html"><![CDATA[<p>折腾开了一个腾讯图床，国内的访问速度还不错，测试一下。</p><p>下面是测试用呆毛图。<br><img src="/images/146064_origin_wx_camera_1668847345339.webp"><br>开了防盗链无法预览，主要是试一下能否在网站上正常显示。</p><h4 id="PS-已经废弃啦，还是都放在本地靠谱一点，也方便备份，已经不想再丢失日志文件了。"><a href="#PS-已经废弃啦，还是都放在本地靠谱一点，也方便备份，已经不想再丢失日志文件了。" class="headerlink" title="PS.已经废弃啦，还是都放在本地靠谱一点，也方便备份，已经不想再丢失日志文件了。"></a>PS.已经废弃啦，还是都放在本地靠谱一点，也方便备份，已经不想再丢失日志文件了。</h4>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>今天的日记</title>
+    <link href="/2022/11/20/2022-11-20/"/>
+    <url>/2022/11/20/2022-11-20/</url>
+    
+    <content type="html"><![CDATA[<p>这是今天的泡泡天使<br><img src="/images/1668943261539.webp"><br>感觉周末又被浪费了一天，早上虽然起的很早，做完核酸后九点不到，但不知哪根筋不对一直想折腾自己搭梯子。  </p><p>应该是被前面机场的情况吓到。可是自己能力不足，效率低下，成本也不好控制，过程中各种问题层出不穷，白折腾一天。  </p><p>现在想想机场就算跑路对我这种月费用户来说也不算什么大问题，换一家可以月结就好啦，还是把精力花在更感兴趣和有内容产出的方面对自己比较友好。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+      <tag>泡泡</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>今天的日记</title>
+    <link href="/2022/11/18/2022-11-18/"/>
+    <url>/2022/11/18/2022-11-18/</url>
+    
+    <content type="html"><![CDATA[<p>上午的时候一直在用的一个“机场”突然停摆了，“业主群”里面的客户都爆炸啦，各种要跑路的言论、阴谋论之类的都冒出来了。  </p><p>就刚刚码字的时间，站长通知问题解决了，悬着的心才放下来。用习惯梯子之后已经无法想象没有梯子之后的网上活动要怎么进行。  </p><span id="more"></span><p>于是上午开始便无心工作，再次尝试自己搭梯子，折腾了大半天，最后还是没有满意的结果。这时候就有一种无力感，一边是身处的环境可能永远无法让自己满意，另一边是自身的能力达不到改善环境的程度。  </p><p>今天还好放弃的早，不然白白浪费了时间之外大概率还会浪费不少金钱。参考前人教程的时候如果使用的环境和教程里面不太相同，就基本无法弄清楚发生的问题是什么原因产生的了，至少我这种程度的是无法弄清啦。  </p><p>太晚了还是好困，先这样吧。还是放一张泡泡的照片好了。  </p><p><img src="/images/photo_2022-11-18-01.47.08.webp">  </p><p>今天也是趴平的一天。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+      <tag>吐槽</tag>
+      
+      <tag>泡泡</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>折腾手机方便的输入姿势</title>
+    <link href="/2022/11/17/phone-methods/"/>
+    <url>/2022/11/17/phone-methods/</url>
+    
+    <content type="html"><![CDATA[<p>折腾了好久<br>没啥经历些什么东西了<br>放点泡泡照片吧<br><img src="/images/IMG_20221105_210815.webp"></p><span id="more"></span><p><img src="/images/IMG_20221106_105659.webp"><br><img src="/images/IMG_20221114_214314.webp"><br>泡泡感觉越来越可爱了，最近有长肉的趋势。<br>困的不行，赶紧去睡了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>泡泡</tag>
+      
+      <tag>猫</tag>
+      
+      <tag>晒图</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>记录一些mac环境中的麻烦事情</title>
+    <link href="/2022/11/15/mac-hr-jk-pw-vi/"/>
+    <url>/2022/11/15/mac-hr-jk-pw-vi/</url>
+    
+    <content type="html"><![CDATA[<p>只是为了以后折腾方便点，记录一下不要再走弯路。</p><h2 id="安装homebrew"><a href="#安装homebrew" class="headerlink" title="安装homebrew"></a>安装homebrew</h2><h3 id="homebrew的概念"><a href="#homebrew的概念" class="headerlink" title="homebrew的概念"></a>homebrew的概念</h3><p>Homebrew是一款MacOS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。<br>通常用于Mac系统，也可以安装在Linux系统<br>注意M1处理器的安装位置（与intel有所区别）：<br>brew的安装位置：&#x2F;opt&#x2F;homebrew<br>brew安装的所有【软件安装位置】在  &#x2F;opt&#x2F;homebrew&#x2F;Cellar 目录下<br>官网地址：<a href="https://brew.sh/index_zh-cn">地址</a>  </p><span id="more"></span><h3 id="安装方法（都是脚本傻瓜安装）"><a href="#安装方法（都是脚本傻瓜安装）" class="headerlink" title="安装方法（都是脚本傻瓜安装）"></a>安装方法（都是脚本傻瓜安装）</h3><p>完整版</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/bin/zsh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure><p>精简版</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/bin/zsh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>&quot;</span> speed<br></code></pre></td></tr></table></figure><p>卸载脚本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/bin/zsh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure><p>查看版本</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">brew -v</span><br></code></pre></td></tr></table></figure><p><em>因为官方的源太慢所以这里都放了国内的源，使用哪个自行选择。使用官方源最好先设置终端走代理。</em>  </p><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>这个简单可以选择直接去官网下载pkg文件，双击安装就好了。<br>官网地址：<a href="https://nodejs.org/zh-cn/">地址</a><br>也可以选择用brew安装</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">brew install <span class="hljs-keyword">node</span><span class="hljs-title"></span><br></code></pre></td></tr></table></figure><p>查看版本</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br></code></pre></td></tr></table></figure><p>查看npm版本</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> -v<br></code></pre></td></tr></table></figure><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><h3 id="安装方法-1"><a href="#安装方法-1" class="headerlink" title="安装方法"></a>安装方法</h3><p>直接brew安装就好了</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>git<br></code></pre></td></tr></table></figure><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><h3 id="安装方法-2"><a href="#安装方法-2" class="headerlink" title="安装方法"></a>安装方法</h3><p>装好node之后就可以用npm安装了，这里需要先更换一下国内的源。找到的教程里面用的淘宝源。</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">npm config set registry https:<span class="hljs-comment">//registry.npm.taobao.org //更换</span><br>npm config get registry <span class="hljs-comment">//检查是否更换成功</span><br></code></pre></td></tr></table></figure><p>然后可以安装了</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">npm install -g hexo-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+      <tag>git</tag>
+      
+      <tag>node</tag>
+      
+      <tag>homebrew</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>自我刷新一下</title>
+    <link href="/2022/11/15/open-a-new-post/"/>
+    <url>/2022/11/15/open-a-new-post/</url>
+    
+    <content type="html"><![CDATA[<p>折腾永无止尽。</p><h2 id="每次算是都有新鲜感"><a href="#每次算是都有新鲜感" class="headerlink" title="每次算是都有新鲜感"></a>每次算是都有新鲜感</h2><p>折腾应该就是为了更便捷高效的达成某种目的吧，技术也在进步，隔一段时间再来看也许就有新的工具了。<br>希望现在的工具能让人集中精力到写点什么上面啦。</p><span id="more"></span><p>还是按照惯例放一张泡泡的靓照<br><img src="/images/IMG_20221111_230952.md.webp"><br>平铺的泡泡</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>吐槽</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>测试</title>
+    <link href="/2022/11/15/test/"/>
+    <url>/2022/11/15/test/</url>
+    
+    <content type="html"><![CDATA[<p>有点晚了，又开始折腾，不知道这次会不会轻松一点。</p><h2 id="这是一个测试"><a href="#这是一个测试" class="headerlink" title="这是一个测试"></a>这是一个测试</h2><span id="more"></span><p><img src="/images/wx_camera_1668350823884.webp"><br>这是泡泡的照片<br><img src="/images/wx_camera_1667739332513.webp"><br>这是泡泡的另一张照片</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GitHub Desktop 代理设置</title>
+    <link href="/2022/11/15/github-dd-li-ue-vi/"/>
+    <url>/2022/11/15/github-dd-li-ue-vi/</url>
+    
+    <content type="html"><![CDATA[<p>Gitub Desktop 对我这种小白来说很是方便，但是国内速度太慢，也没有代理设置入口。</p><p>Windows 需修改文件:</p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-meta">%</span>HOMEPATH<span class="hljs-meta">%</span>/.gitco<span class="hljs-symbol">nfig</span><br></code></pre></td></tr></table></figure><p>Mac &#x2F; Linux 需修改文件:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">~/.gitconfig<br></code></pre></td></tr></table></figure><span id="more"></span><p>然后添加：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[http]</span><br><span class="hljs-attr">proxy</span> = socks5://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:port<br><span class="hljs-section">[https]</span><br><span class="hljs-attr">proxy</span> = socks5://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:port<br><span class="hljs-section">[git]</span><br><span class="hljs-attr">proxy</span> = socks5://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:port<br></code></pre></td></tr></table></figure><p>也可以用命令为git添加代理设置：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> http<span class="hljs-selector-class">.proxy</span> socks5:<span class="hljs-comment">//127.0.0.1:port</span><br>git config <span class="hljs-attr">--global</span> https<span class="hljs-selector-class">.proxy</span> socks5:<span class="hljs-comment">//127.0.0.1:port</span><br>git config <span class="hljs-attr">--global</span> git<span class="hljs-selector-class">.proxy</span> socks5:<span class="hljs-comment">//127.0.0.1:port</span><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>备忘</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>GitHub</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/1970/01/01/hello-world/"/>
+    <url>/1970/01/01/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
